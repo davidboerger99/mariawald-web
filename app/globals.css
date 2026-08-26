@@ -2,25 +2,101 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #444444;
+  --accent: #2f6b52;
+  --accent-dark: #24543f;
+  --navy: #1e265c;
+  --navy-dark: #171d47;
+  --cream: #fce9cd;
+  --muted: #f4f4f4;
+  --heading: #444444;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-navy: var(--navy);
+  --color-navy-dark: var(--navy-dark);
+  --color-cream: var(--cream);
+  --color-muted: var(--muted);
+  --color-heading: var(--heading);
+  --font-sans: var(--font-inter);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+/* thin, large section headings like the original */
+.section-title {
+  font-size: 38px;
+  line-height: 46px;
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  color: var(--heading);
+  text-align: center;
+}
+
+/* small uppercase accent label above section titles */
+.eyebrow {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* card hover: soft lift with deepening shadow */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 45px rgba(30, 38, 92, 0.12);
+}
+
+/* romanesque arch pattern as decorative overlay */
+.arch-pattern {
+  -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+  mask-image: linear-gradient(to bottom, black, transparent);
+}
+
+/* Ken Burns motions for the hero slideshow: slightly longer than the
+   slide interval so the movement never visibly stops */
+@keyframes kb-in {
+  from { transform: scale(1); }
+  to { transform: scale(1.12); }
+}
+@keyframes kb-out {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+@keyframes kb-left {
+  from { transform: scale(1.1) translateX(1.5%); }
+  to { transform: scale(1.1) translateX(-1.5%); }
+}
+@keyframes kb-right {
+  from { transform: scale(1.1) translateX(-1.5%); }
+  to { transform: scale(1.1) translateX(1.5%); }
+}
+.kb-zoom-in { animation: kb-in 9s ease-out both; }
+.kb-zoom-out { animation: kb-out 9s ease-out both; }
+.kb-pan-left { animation: kb-left 9s linear both; }
+.kb-pan-right { animation: kb-right 9s linear both; }
+
+.section-sub {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 300;
+  color: #666;
 }
