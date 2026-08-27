@@ -1,10 +1,23 @@
+// ===========================================================================
+//  MENÜ / NAVIGATION  —  hier steuerst du die obere Menüleiste
+// ---------------------------------------------------------------------------
+//  So änderst du etwas (auch über Claude Code in einfachem Deutsch):
+//   - Name eines Menüpunkts ändern:      "label" anpassen
+//   - Zielseite ändern:                  "href" anpassen (z. B. "/aktuelles")
+//   - Menüpunkt als Knopf hervorheben:   variant: "button"  (z. B. für Login)
+//   - Dropdown-Einträge ändern:          Liste in "children" bearbeiten
+//   - Externen Link:                     external: true beim Eintrag setzen
+//  Die Reihenfolge in dieser Liste ist auch die Reihenfolge im Menü.
+// ===========================================================================
 export type NavItem = {
-  label: string;
-  href: string;
-  children?: { label: string; href: string; external?: boolean }[];
+  label: string; // angezeigter Name im Menü
+  href: string; // Zielseite (interner Pfad "/..." oder externe URL)
+  variant?: "button"; // "button" = als hervorgehobener Knopf darstellen
+  children?: { label: string; href: string; external?: boolean }[]; // Dropdown
 };
 
 export const nav: NavItem[] = [
+  // 1) Behaltene Menüpunkte -------------------------------------------------
   {
     label: "Aktuelles",
     href: "/aktuelles",
@@ -28,31 +41,21 @@ export const nav: NavItem[] = [
       { label: "Gebetsanliegen", href: "/gebetsanliegen" },
     ],
   },
+
+  // 2) Drei neue Menüpunkte  —  Namen, Ziele und Dropdowns frei änderbar ----
+  //    (Beispielhaft benannt. Einfach "label" und "href" auf euren Inhalt ändern.)
   {
-    label: "Klosterbetriebe",
-    href: "/klosterbetriebe",
+    label: "Menüpunkt 3",
+    href: "/seite-3",
     children: [
-      { label: "Klosterladen", href: "/klosterladen" },
-      { label: "Klostergaststätte", href: "/klostergaststaette" },
-      { label: "Likörmanufaktur", href: "/likoermanufaktur" },
-      { label: "Buchhandlung", href: "/buchhandlung" },
-      { label: "Gästehaus", href: "/gaestehaus" },
-      { label: "Klostergärtnerei", href: "/klostergaertnerei" },
+      { label: "Unterpunkt A", href: "/unterpunkt-a" },
+      { label: "Unterpunkt B", href: "/unterpunkt-b" },
     ],
   },
-  { label: "Spenden", href: "/spenden" },
-  { label: "Bestattungen", href: "/bestattungen" },
-  {
-    label: "Eifel",
-    href: "/eifel",
-    children: [
-      { label: "Kermeter und Nationalpark", href: "/eifel/kermeter" },
-      { label: "Rursee", href: "/eifel/rursee" },
-      { label: "Wanderwege", href: "/eifel/wanderwege" },
-      { label: "Heimbach", href: "/eifel/heimbach" },
-    ],
-  },
-  { label: "Shops", href: "/shops" },
+  { label: "Menüpunkt 4", href: "/seite-4" },
+  { label: "Menüpunkt 5", href: "/seite-5" },
+
+  // 3) Infos (behalten) -----------------------------------------------------
   {
     label: "Infos",
     href: "/kontakt",
@@ -63,7 +66,9 @@ export const nav: NavItem[] = [
       { label: "Newsletter", href: "/newsletter" },
     ],
   },
-  { label: "Jobs", href: "/karriere" },
+
+  // 4) Login-Bereich  —  als Knopf dargestellt ------------------------------
+  { label: "Login", href: "/intern", variant: "button" },
 ];
 
 export type NewsItem = {
