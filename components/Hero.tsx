@@ -1,16 +1,14 @@
-import Header from "@/components/Header";
 import HeroSlideshow from "@/components/HeroSlideshow";
 
 export default function Hero() {
   return (
     <>
-      <section className="relative h-screen min-h-[560px]">
+      <section className="relative h-[calc(100vh-68px)] min-h-[520px]">
         <HeroSlideshow />
         <div
           className="absolute inset-0 bg-black/25 [background:radial-gradient(ellipse_at_center,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.2)_55%,rgba(0,0,0,0.35)_100%)]"
           aria-hidden="true"
         />
-        <Header />
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
           <div style={{ textShadow: "0 1px 3px rgba(0,0,0,.55), 0 4px 18px rgba(0,0,0,.5)" }}>

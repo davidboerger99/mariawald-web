@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import Header from "@/components/Header";
 
 type Crumb = { label: string; href: string };
 
@@ -23,7 +22,6 @@ export default function PageHeader({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <Header />
         <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/65 via-black/25 to-black/20">
           <div className="mx-auto w-full max-w-[1200px] px-[35px] pb-10 text-white">
             <nav aria-label="Brotkrumen" className="text-[12px] text-white/75">
