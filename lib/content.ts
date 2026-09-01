@@ -116,11 +116,26 @@ export const news: NewsItem[] = [
 export type EventItem = {
   slug: string;
   title: string;
-  date: string;
-  time: string;
+  date: string; // Startdatum (ISO)
+  endDate?: string; // optionales Enddatum für mehrtägige Termine (ISO)
+  time?: string;
   location: string;
+  category: string; // muss zu einem Eintrag in eventCategories passen
   teaser: string;
 };
+
+// Kategorien mit Farbe (der Punkt vor dem Titel). Farben frei änderbar.
+export const eventCategories: { label: string; color: string }[] = [
+  { label: "Gottesdienst", color: "#2f6b52" },
+  { label: "Konzert", color: "#b8912f" },
+  { label: "Führung", color: "#1e265c" },
+  { label: "Besinnung", color: "#b02218" },
+  { label: "Vortrag", color: "#7a8a99" },
+];
+
+export function eventCategoryColor(label: string): string {
+  return eventCategories.find((c) => c.label === label)?.color ?? "#999999";
+}
 
 export const events: EventItem[] = [
   {
@@ -129,7 +144,17 @@ export const events: EventItem[] = [
     date: "2026-08-15",
     time: "11:30 Uhr",
     location: "Abteikirche",
+    category: "Konzert",
     teaser: "30 Minuten Orgelmusik am Feiertag Mariä Himmelfahrt.",
+  },
+  {
+    slug: "sonntagshochamt-choral",
+    title: "Sonntagshochamt mit gregorianischem Choral",
+    date: "2026-08-16",
+    time: "10:30 Uhr",
+    location: "Abteikirche",
+    category: "Gottesdienst",
+    teaser: "Feierliches Hochamt mit Choralgesang der Mönche.",
   },
   {
     slug: "kraeuterwanderung",
@@ -137,15 +162,35 @@ export const events: EventItem[] = [
     date: "2026-08-22",
     time: "14:00 Uhr",
     location: "Treffpunkt Klosterpforte",
+    category: "Führung",
     teaser: "Mit anschließender Verkostung in der Klostergaststätte.",
+  },
+  {
+    slug: "chorkonzert-kirchweih",
+    title: "Chorkonzert zum Kirchweihfest",
+    date: "2026-09-06",
+    time: "17:00 Uhr",
+    location: "Abteikirche",
+    category: "Konzert",
+    teaser: "Geistliche Chormusik aus fünf Jahrhunderten.",
   },
   {
     slug: "besinnungstage-herbst",
     title: "Besinnungstage im Herbst",
     date: "2026-09-11",
-    time: "Fr bis So",
+    endDate: "2026-09-13",
     location: "Gästehaus",
+    category: "Besinnung",
     teaser: "Ein Wochenende der Stille auf dem Kermeter. Anmeldung erforderlich.",
+  },
+  {
+    slug: "fuehrung-kreuzgang",
+    title: "Führung durch den Kreuzgang",
+    date: "2026-09-19",
+    time: "15:00 Uhr",
+    location: "Treffpunkt Klosterpforte",
+    category: "Führung",
+    teaser: "Ein Blick in sonst verborgene Bereiche des Klosters.",
   },
   {
     slug: "lesung-klosterbibliothek",
@@ -153,7 +198,17 @@ export const events: EventItem[] = [
     date: "2026-09-25",
     time: "19:00 Uhr",
     location: "Bibliothek",
+    category: "Vortrag",
     teaser: "Texte aus der zisterziensischen Tradition, gelesen bei Kerzenlicht.",
+  },
+  {
+    slug: "adventlicher-orgelabend",
+    title: "Adventlicher Orgelabend",
+    date: "2026-11-29",
+    time: "18:00 Uhr",
+    location: "Abteikirche",
+    category: "Konzert",
+    teaser: "Musik zur Einstimmung auf den Advent.",
   },
 ];
 

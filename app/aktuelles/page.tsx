@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import Section from "@/components/Section";
 import NewsCard from "@/components/NewsCard";
-import EventRow from "@/components/EventRow";
-import { events, news } from "@/lib/content";
+import EventsList from "@/components/EventsList";
+import { news } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Aktuelles" };
 
@@ -27,10 +27,8 @@ export default function AktuellesPage() {
         moreLabel="Alle Veranstaltungen"
         tone="sand"
       >
-        <div className="rounded-xl border border-[#e5e5e5] bg-white px-6">
-          {events.map((e) => (
-            <EventRow key={e.slug} item={e} />
-          ))}
+        <div className="mx-auto max-w-[1000px]">
+          <EventsList limit={5} showFilters={false} />
         </div>
       </Section>
     </>
