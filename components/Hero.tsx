@@ -3,7 +3,7 @@ import HeroSlideshow from "@/components/HeroSlideshow";
 export default function Hero() {
   return (
     <>
-      <section className="relative h-[calc(100vh-68px)] min-h-[520px]">
+      <section className="relative h-[calc(100vh-84px)] min-h-[520px]">
         <HeroSlideshow />
         <div
           className="absolute inset-0 bg-black/25 [background:radial-gradient(ellipse_at_center,rgba(0,0,0,0.45)_0%,rgba(0,0,0,0.2)_55%,rgba(0,0,0,0.35)_100%)]"

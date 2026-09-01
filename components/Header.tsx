@@ -1,19 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { nav } from "@/lib/content";
-
-function Mark({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M32 7 V50" strokeWidth="5" />
-      <path d="M23.5 18 H40.5" strokeWidth="5" />
-      <path d="M15 51 V27 L32 43 L49 27 V51" strokeWidth="6" />
-    </svg>
-  );
-}
 
 function Chevron({ className = "" }: { className?: string }) {
   return (
@@ -62,15 +53,17 @@ export default function Header() {
         scrolled ? "border-black/5 shadow-[0_2px_16px_rgba(0,0,0,0.06)]" : "border-black/5"
       }`}
     >
-      <div className="mx-auto flex max-w-[1240px] items-center px-5 py-3 lg:px-9">
-        {/* Logo im Kästchen (führt zur Startseite) */}
-        <Link href="/" aria-label="Zur Startseite" className="flex items-center gap-3">
-          <span className="flex h-11 w-11 items-center justify-center rounded-lg border-2 border-heading text-accent">
-            <Mark className="h-6 w-6" />
-          </span>
-          <span className="text-[16px] font-semibold tracking-[0.16em] text-heading uppercase">
-            Mariawald
-          </span>
+      <div className="mx-auto flex max-w-[1240px] items-center px-5 py-2 lg:px-9">
+        {/* Logo Kloster Mariawald (führt zur Startseite) */}
+        <Link href="/" aria-label="Zur Startseite" className="flex items-center">
+          <Image
+            src="/images/logo-kloster-mariawald.png"
+            alt="Kloster Mariawald"
+            width={261}
+            height={180}
+            priority
+            className="h-[68px] w-auto"
+          />
         </Link>
 
         {/* Menüpunkte mittig */}
@@ -137,12 +130,13 @@ export default function Header() {
       {openMobile && (
         <div className="fixed inset-0 z-[60] flex flex-col bg-white lg:hidden">
           <div className="flex items-center justify-between border-b border-black/5 px-5 py-3">
-            <span className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-lg border-2 border-heading text-accent">
-                <Mark className="h-5 w-5" />
-              </span>
-              <span className="text-[16px] font-semibold tracking-[0.16em] text-heading uppercase">Mariawald</span>
-            </span>
+            <Image
+              src="/images/logo-kloster-mariawald.png"
+              alt="Kloster Mariawald"
+              width={261}
+              height={180}
+              className="h-11 w-auto"
+            />
             <button
               type="button"
               className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/5"
