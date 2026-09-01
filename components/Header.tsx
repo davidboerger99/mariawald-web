@@ -103,10 +103,10 @@ export default function Header() {
         {login && (
           <Link
             href={login.href}
-            className="ml-auto hidden items-center gap-3 rounded-full bg-navy py-1.5 pl-5 pr-1.5 text-[15px] font-semibold text-white transition-colors hover:bg-navy-dark lg:flex"
+            className="ml-auto hidden items-center gap-3 rounded-full bg-logo-red py-1.5 pl-5 pr-1.5 text-[15px] font-semibold text-white transition-colors hover:bg-logo-red-dark lg:flex"
           >
             {login.label}
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white">
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-logo-gold text-logo-red">
               <ArrowUpRight className="h-4 w-4" />
             </span>
           </Link>
@@ -192,11 +192,11 @@ export default function Header() {
             {login && (
               <Link
                 href={login.href}
-                className="mt-6 flex items-center justify-center gap-3 rounded-full bg-navy py-3.5 text-[18px] font-semibold text-white"
+                className="mt-6 flex items-center justify-center gap-3 rounded-full bg-logo-red py-3.5 text-[18px] font-semibold text-white"
                 onClick={() => setOpenMobile(false)}
               >
                 {login.label}
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent text-white">
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-logo-gold text-logo-red">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </Link>

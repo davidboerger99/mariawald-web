@@ -10,6 +10,10 @@
   --cream: #fce9cd;
   --muted: #f4f4f4;
   --heading: #444444;
+  /* Farben aus dem Kloster-Mariawald-Logo */
+  --logo-red: #b02218;
+  --logo-red-dark: #8f1b13;
+  --logo-gold: #ceb573;
 }
 
 @theme inline {
@@ -22,6 +26,9 @@
   --color-cream: var(--cream);
   --color-muted: var(--muted);
   --color-heading: var(--heading);
+  --color-logo-red: var(--logo-red);
+  --color-logo-red-dark: var(--logo-red-dark);
+  --color-logo-gold: var(--logo-gold);
   --font-sans: var(--font-poppins);
 }
 
