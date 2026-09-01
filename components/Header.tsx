@@ -67,7 +67,7 @@ export default function Header() {
         </Link>
 
         {/* Menüpunkte mittig */}
-        <nav aria-label="Hauptnavigation" className="mx-auto hidden items-center gap-7 lg:flex">
+        <nav aria-label="Hauptnavigation" className="ml-auto hidden items-center gap-8 lg:flex">
           {items.map((item) => (
             <div key={item.label} className="group relative">
               <Link

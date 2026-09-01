@@ -58,8 +58,6 @@ export const nav: NavItem[] = [
     ],
   },
 
-  // 4) Login-Bereich  —  als Knopf dargestellt ------------------------------
-  { label: "Login", href: "/intern", variant: "button" },
 ];
 
 export type NewsItem = {
