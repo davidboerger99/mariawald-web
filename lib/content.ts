@@ -42,18 +42,9 @@ export const nav: NavItem[] = [
     ],
   },
 
-  // 2) Drei neue Menüpunkte  —  Namen, Ziele und Dropdowns frei änderbar ----
-  //    (Beispielhaft benannt. Einfach "label" und "href" auf euren Inhalt ändern.)
-  {
-    label: "Menüpunkt 3",
-    href: "/seite-3",
-    children: [
-      { label: "Unterpunkt A", href: "/unterpunkt-a" },
-      { label: "Unterpunkt B", href: "/unterpunkt-b" },
-    ],
-  },
-  { label: "Menüpunkt 4", href: "/seite-4" },
-  { label: "Menüpunkt 5", href: "/seite-5" },
+  // 2) Weitere Menüpunkte können hier ergänzt werden, z. B.:
+  //    { label: "Gästehaus", href: "/gaestehaus" },
+  //    { label: "Angebote", href: "/angebote", children: [ { label: "...", href: "/..." } ] },
 
   // 3) Infos (behalten) -----------------------------------------------------
   {

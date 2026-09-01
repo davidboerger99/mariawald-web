@@ -93,38 +93,6 @@ const simplePages: Record<string, { title: string; intro: string; body: string[]
     intro: "",
     body: ["Hier folgt die vollständige Datenschutzerklärung."],
   },
-
-  // Platzhalter-Seiten für die neuen Menüpunkte.
-  // Titel, Untertitel (intro) und Textabsätze (body) hier anpassen –
-  // oder Claude Code einfach sagen, was auf der Seite stehen soll.
-  "seite-3": {
-    title: "Menüpunkt 3",
-    intro: "Dies ist eine Platzhalterseite. Titel und Text lassen sich frei ändern.",
-    body: [
-      "Hier kommt der Inhalt für den dritten Menüpunkt hin.",
-      "Sag Claude Code zum Beispiel: „Nenne Menüpunkt 3 in ,Gästehaus‘ um und schreibe einen Absatz über Übernachtungsmöglichkeiten.“",
-    ],
-  },
-  "unterpunkt-a": {
-    title: "Unterpunkt A",
-    intro: "Beispiel für einen Dropdown-Eintrag von Menüpunkt 3.",
-    body: ["Platzhalterinhalt. Frei anpassbar."],
-  },
-  "unterpunkt-b": {
-    title: "Unterpunkt B",
-    intro: "Beispiel für einen Dropdown-Eintrag von Menüpunkt 3.",
-    body: ["Platzhalterinhalt. Frei anpassbar."],
-  },
-  "seite-4": {
-    title: "Menüpunkt 4",
-    intro: "Dies ist eine Platzhalterseite. Titel und Text lassen sich frei ändern.",
-    body: ["Hier kommt der Inhalt für den vierten Menüpunkt hin."],
-  },
-  "seite-5": {
-    title: "Menüpunkt 5",
-    intro: "Dies ist eine Platzhalterseite. Titel und Text lassen sich frei ändern.",
-    body: ["Hier kommt der Inhalt für den fünften Menüpunkt hin."],
-  },
 };
 
 export function generateStaticParams() {
