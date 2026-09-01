@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Hero from "@/components/Hero";
-import TagesimpulsBand from "@/components/TagesimpulsBand";
 import NewsSection from "@/components/NewsSection";
 import EventsList from "@/components/EventsList";
 import ServiceTimesSection from "@/components/ServiceTimesSection";
@@ -12,7 +11,6 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <TagesimpulsBand />
       <NewsSection />
 
       <section className="bg-muted">

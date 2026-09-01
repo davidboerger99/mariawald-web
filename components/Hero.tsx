@@ -34,11 +34,11 @@ export default function Hero() {
         </div>
 
         <a
-          href="#tagesimpuls"
+          href="#aktuelles"
           className="absolute inset-x-0 bottom-8 mx-auto flex w-fit flex-col items-center text-white"
           style={{ textShadow: "0 1px 3px rgba(0,0,0,.4)" }}
         >
-          <span className="text-[15px] tracking-[0.2em]">Wort für den Tag</span>
+          <span className="text-[15px] tracking-[0.2em]">Mehr entdecken</span>
           <svg viewBox="0 0 24 24" className="mt-1 h-5 w-5 animate-bounce" fill="currentColor" aria-hidden="true">
             <path d="M12 16.5 4.5 9l1.4-1.4L12 13.7l6.1-6.1L19.5 9z" />
           </svg>

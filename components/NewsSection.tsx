@@ -4,7 +4,7 @@ import { formatDate, news } from "@/lib/content";
 
 export default function NewsSection() {
   return (
-    <section className="bg-white">
+    <section id="aktuelles" className="scroll-mt-24 bg-white">
       <div className="mx-auto max-w-[1200px] px-[35px] py-24">
         <span className="eyebrow">Aus der Abtei</span>
         <h1 className="section-title">Aktuelles</h1>
