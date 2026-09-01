@@ -14,14 +14,6 @@ function Chevron({ className = "" }: { className?: string }) {
   );
 }
 
-function ArrowUpRight({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" className={className} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M7 17 17 7M8 7h9v9" />
-    </svg>
-  );
-}
-
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -42,8 +34,8 @@ export default function Header() {
     };
   }, [openMobile]);
 
-  const items = nav.filter((i) => i.variant !== "button");
-  const login = nav.find((i) => i.variant === "button");
+  const items = nav.filter((i) => !i.variant);
+  const cta = nav.find((i) => i.variant === "donation");
 
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
@@ -99,16 +91,13 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Login als dunkler Pill-Button mit rundem Pfeil-Badge */}
-        {login && (
+        {/* Spenden-Button rechts (Pill, Großbuchstaben, Poppins fett) */}
+        {cta && (
           <Link
-            href={login.href}
-            className="ml-auto hidden items-center gap-3 rounded-full bg-logo-gold py-1.5 pl-5 pr-1.5 text-[15px] font-semibold text-logo-red-dark transition-colors hover:bg-logo-gold-dark lg:flex"
+            href={cta.href}
+            className="ml-8 hidden rounded-full bg-logo-gold px-[19px] text-[16px] font-bold uppercase leading-[38px] tracking-wide text-[#353535] transition-colors duration-200 hover:bg-logo-gold-dark lg:inline-block"
           >
-            {login.label}
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-logo-red text-white">
-              <ArrowUpRight className="h-4 w-4" />
-            </span>
+            {cta.label}
           </Link>
         )}
 
@@ -189,16 +178,13 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            {login && (
+            {cta && (
               <Link
-                href={login.href}
-                className="mt-6 flex items-center justify-center gap-3 rounded-full bg-logo-gold py-3.5 text-[18px] font-semibold text-logo-red-dark"
+                href={cta.href}
+                className="mt-6 flex items-center justify-center rounded-full bg-logo-gold py-3.5 text-[17px] font-bold uppercase tracking-wide text-[#353535]"
                 onClick={() => setOpenMobile(false)}
               >
-                {login.label}
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-logo-red text-white">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
+                {cta.label}
               </Link>
             )}
           </nav>
