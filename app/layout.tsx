@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+// Schriftart wie bei Kloster Volkenroda: Poppins (moderne, geometrische Sans-Serif)
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="de" className={`${inter.variable} h-full antialiased`}>
+    <html lang="de" className={`${poppins.variable} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <main className="flex-1">{children}</main>
         <Footer />
