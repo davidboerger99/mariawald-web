@@ -187,15 +187,6 @@ export const events: EventItem[] = [
     teaser: "Ein Wochenende der Stille auf dem Kermeter. Anmeldung erforderlich.",
   },
   {
-    slug: "fuehrung-kreuzgang",
-    title: "Führung durch den Kreuzgang",
-    date: "2026-09-19",
-    time: "15:00 Uhr",
-    location: "Treffpunkt Klosterpforte",
-    category: "Führung",
-    teaser: "Ein Blick in sonst verborgene Bereiche des Klosters.",
-  },
-  {
     slug: "lesung-klosterbibliothek",
     title: "Lesung in der Klosterbibliothek",
     date: "2026-09-25",
