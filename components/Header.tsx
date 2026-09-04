@@ -35,7 +35,7 @@ export default function Header() {
   }, [openMobile]);
 
   const items = nav.filter((i) => !i.variant);
-  const cta = nav.find((i) => i.variant === "donation");
+  const cta = nav.find((i) => i.variant === "login");
 
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
 
@@ -91,7 +91,7 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Spenden-Button rechts (Pill, Großbuchstaben, Poppins fett) */}
+        {/* Mitglieder-Login-Button rechts (Pill, Großbuchstaben, Poppins fett) */}
         {cta && (
           <Link
             href={cta.href}

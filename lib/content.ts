@@ -12,7 +12,7 @@
 export type NavItem = {
   label: string; // angezeigter Name im Menü
   href: string; // Zielseite (interner Pfad "/..." oder externe URL)
-  variant?: "donation"; // "donation" = als hervorgehobener Spenden-Knopf rechts
+  variant?: "login"; // "login" = als hervorgehobener Knopf rechts (z. B. Mitglieder Login)
   children?: { label: string; href: string; external?: boolean }[]; // Dropdown
 };
 
@@ -58,8 +58,8 @@ export const nav: NavItem[] = [
     ],
   },
 
-  // 4) Spenden-Button (rechts, hervorgehoben) -------------------------------
-  { label: "Jetzt spenden", href: "/spenden", variant: "donation" },
+  // 4) Mitglieder-Login-Button (rechts, hervorgehoben) ----------------------
+  { label: "Mitglieder Login", href: "/intern", variant: "login" },
 ];
 
 export type NewsItem = {
