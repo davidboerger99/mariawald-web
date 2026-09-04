@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const links = [
-  { label: "Unser Kloster", href: "/unser-kloster" },
-  { label: "Gottesdienstzeiten", href: "/gottesdienstzeiten" },
-  { label: "Gästehaus", href: "/gaestehaus" },
+  { label: "Kirche und Kloster", href: "/unser-kloster/kirche-und-kloster" },
+  { label: "Klostergaststätte", href: "/klostergaststaette" },
+  { label: "Buchhandlung", href: "/buchhandlung" },
   { label: "Klosterführungen", href: "/klosterfuehrungen" },
 ];
 
@@ -17,11 +17,21 @@ export default function KlosterIntro() {
             <h2 className="text-[36px] font-semibold leading-tight sm:text-[44px]">
               Die Abtei Mariawald
             </h2>
-            <p className="mt-6 max-w-xl text-[17px] leading-relaxed text-navy/90">
-              Hoch über dem Rurtal, mitten im Nationalpark Eifel, liegt die Abtei Mariawald.
-              Seit über 500 Jahren ist sie ein Ort des Gebets, der Stille und der
-              Gastfreundschaft, offen für alle, die hier zur Ruhe kommen möchten.
-            </p>
+            <div className="mt-6 max-w-xl space-y-4 text-[17px] leading-relaxed text-navy/90">
+              <p>
+                Seit vielen Jahrhunderten ist die Abtei Mariawald ein Ort des Gebets und der
+                Gastfreundschaft, ein Rastplatz für die Seele auf dem Weg durch die Eifel.
+                Malerisch über dem Rurtal, hoch auf dem wilden Kermeter oberhalb von Heimbach,
+                liegt das Kloster eingebettet in die unberührte Natur des Nationalparks Eifel.
+              </p>
+              <p>
+                Ein Ort jahrhundertealter Tradition, an dem Sie zur Ruhe kommen und neue Kraft
+                schöpfen: zur Besinnung in der Klosterkirche, zur Stärkung in der
+                Klostergaststätte, zum Entdecken in der Buchhandlung und zum Eintauchen in die
+                Geschichte bei einer Klosterführung. Ein Ort, an dem man freundlichen Menschen
+                begegnet und gern verweilt.
+              </p>
+            </div>
           </div>
 
           {/* Pfeil-Buttons rechts */}
