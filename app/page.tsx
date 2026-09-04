@@ -12,7 +12,7 @@ export default function Home() {
       <EventsCarousel />
 
       <section className="bg-white">
-        <div className="mx-auto max-w-[1000px] px-5 pb-24 lg:px-9">
+        <div className="mx-auto max-w-[1240px] px-5 pb-24 lg:px-9">
           <h2 className="text-[32px] font-bold leading-tight text-heading sm:text-[40px]">
             Anstehende Führungen
           </h2>
