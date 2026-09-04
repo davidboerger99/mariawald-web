@@ -32,6 +32,7 @@ export const nav: NavItem[] = [
     label: "Kloster",
     href: "/unser-kloster",
     children: [
+      { label: "Über uns", href: "/unser-kloster/ueber-uns" },
       { label: "Kirche und Kloster", href: "/unser-kloster/kirche-und-kloster" },
       { label: "Leben im Kloster", href: "/unser-kloster/leben-im-kloster" },
       { label: "Geschichte", href: "/unser-kloster/geschichte" },
