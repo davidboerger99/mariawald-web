@@ -6,14 +6,6 @@ import Placeholder from "@/components/Placeholder";
 import { businesses } from "@/lib/content";
 
 const simplePages: Record<string, { title: string; intro: string; body: string[] }> = {
-  klosterfuehrungen: {
-    title: "Klosterführungen",
-    intro: "Entdecken Sie Kirche, Kreuzgang und Klostergeschichte.",
-    body: [
-      "Führungen durch die Abteikirche und den Kreuzgang finden regelmäßig statt und können für Gruppen individuell vereinbart werden.",
-      "Anmeldung über die Klosterpforte oder das Kontaktformular.",
-    ],
-  },
   kirchenmusik: {
     title: "Kirchenmusik",
     intro: "Orgel, Choral und Konzerte in der Abteikirche.",

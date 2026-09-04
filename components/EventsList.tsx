@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { eventCategories, eventCategoryColor, events, type EventItem } from "@/lib/content";
 
 const monthNames = [
@@ -31,17 +31,26 @@ function dateLabel(ev: EventItem) {
 type Props = {
   limit?: number;
   showFilters?: boolean;
+  category?: string; // nur diese Kategorie anzeigen (z. B. "Führung")
+  upcomingOnly?: boolean; // nur anstehende Termine (ab heute)
 };
 
-export default function EventsList({ limit, showFilters = true }: Props) {
+export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false }: Props) {
   const [active, setActive] = useState<string | null>(null);
+  // "heute" erst nach dem Mounten setzen, um Hydration-Unterschiede zu vermeiden
+  const [today, setToday] = useState<string | null>(null);
+  useEffect(() => {
+    setToday(new Date().toISOString().slice(0, 10));
+  }, []);
 
   const shown = useMemo(() => {
     let list = [...events].sort((a, b) => a.date.localeCompare(b.date));
+    if (category) list = list.filter((e) => e.category === category);
+    if (upcomingOnly && today) list = list.filter((e) => (e.endDate ?? e.date) >= today);
     if (active) list = list.filter((e) => e.category === active);
     if (limit) list = list.slice(0, limit);
     return list;
-  }, [active, limit]);
+  }, [active, limit, category, upcomingOnly, today]);
 
   // nach Monat/Jahr gruppieren
   const groups = useMemo(() => {
