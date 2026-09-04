@@ -97,6 +97,7 @@ export default function Header() {
         {cta && (
           <Link
             href={cta.href}
+            prefetch={false}
             className="ml-7 hidden rounded-full bg-logo-gold px-6 text-[14px] font-bold uppercase leading-[40px] tracking-wide text-[#353535] transition-colors hover:bg-logo-gold-dark lg:inline-block"
           >
             {cta.label}
@@ -183,6 +184,7 @@ export default function Header() {
             {cta && (
               <Link
                 href={cta.href}
+                prefetch={false}
                 className="mt-6 flex items-center justify-center rounded-full bg-logo-gold py-3.5 text-[16px] font-bold uppercase tracking-wide text-[#353535]"
                 onClick={() => setOpenMobile(false)}
               >

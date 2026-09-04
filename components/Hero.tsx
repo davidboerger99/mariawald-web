@@ -12,22 +12,22 @@ export default function Hero() {
 
         <div className="absolute inset-0 flex flex-col items-center justify-center px-4 text-center text-white">
           <div style={{ textShadow: "0 1px 3px rgba(0,0,0,.55), 0 4px 18px rgba(0,0,0,.5)" }}>
-            <div className="flex items-center justify-center gap-5">
-              <span className="text-[42px] font-light tracking-[0.35em] sm:text-[54px]">
+            <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-5">
+              <span className="text-[26px] font-light tracking-[0.18em] sm:text-[42px] sm:tracking-[0.32em] md:text-[54px] md:tracking-[0.35em]">
                 MARIA
               </span>
-              <span aria-hidden="true" className="relative inline-block h-[110px] w-[64px]">
+              <span aria-hidden="true" className="relative inline-block h-[62px] w-[36px] sm:h-[92px] sm:w-[54px] md:h-[110px] md:w-[64px]">
                 <svg viewBox="0 0 64 110" className="h-full w-full" fill="none" stroke="currentColor">
                   <path d="M32 4 v102" strokeWidth="3" />
                   <path d="M18 18 h28" strokeWidth="3" />
                   <path d="M10 82 V42 l22 26 22 -26 v40" strokeWidth="4" />
                 </svg>
               </span>
-              <span className="text-[42px] font-light tracking-[0.35em] sm:text-[54px]">
+              <span className="text-[26px] font-light tracking-[0.18em] sm:text-[42px] sm:tracking-[0.32em] md:text-[54px] md:tracking-[0.35em]">
                 WALD
               </span>
             </div>
-            <p className="mt-4 text-[15px] font-light tracking-[0.5em] uppercase">
+            <p className="mt-4 text-[11px] font-light tracking-[0.28em] uppercase sm:text-[15px] sm:tracking-[0.5em]">
               Abtei in der Eifel
             </p>
           </div>
