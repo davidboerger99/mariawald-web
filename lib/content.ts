@@ -127,11 +127,11 @@ export type EventItem = {
 
 // Kategorien mit Farbe (der Punkt vor dem Titel). Farben frei änderbar.
 export const eventCategories: { label: string; color: string }[] = [
-  { label: "Gottesdienst", color: "#2f6b52" },
+  { label: "Gottesdienst", color: "#1e265c" },
   { label: "Konzert", color: "#b8912f" },
-  { label: "Führung", color: "#1e265c" },
+  { label: "Führung", color: "#7a8a99" },
   { label: "Besinnung", color: "#b02218" },
-  { label: "Vortrag", color: "#7a8a99" },
+  { label: "Vortrag", color: "#8a6d4b" },
 ];
 
 export function eventCategoryColor(label: string): string {

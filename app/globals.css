@@ -3,8 +3,9 @@
 :root {
   --background: #ffffff;
   --foreground: #444444;
-  --accent: #2f6b52;
-  --accent-dark: #24543f;
+  /* Akzent = Logo-Rot (einheitlich mit dem Kloster-Mariawald-Logo) */
+  --accent: #b02218;
+  --accent-dark: #8f1b13;
   --navy: #1e265c;
   --navy-dark: #171d47;
   --cream: #fce9cd;

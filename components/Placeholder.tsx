@@ -6,7 +6,7 @@ type Props = {
 
 const tones = {
   stone: "from-[#d8d2c6] to-[#c4bcab] text-[#6b6252]",
-  forest: "from-[#4a6741] via-[#3d5a36] to-[#2c4227] text-white/70",
+  forest: "from-[#8a7f66] via-[#726550] to-[#5f5640] text-white/70",
   accent: "from-accent to-accent-dark text-white/80",
   sky: "from-[#a8c4d4] via-[#8fb0c4] to-[#6e94ab] text-white/80",
 };
