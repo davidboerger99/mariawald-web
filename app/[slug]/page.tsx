@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import PageHeader from "@/components/PageHeader";
 import Prose from "@/components/Prose";
@@ -116,7 +117,13 @@ export default async function GenericPage({ params }: PageProps<"/[slug]">) {
           crumbs={[{ label: "Klosterbetriebe", href: "/klosterbetriebe" }]}
         />
         <div className="mx-auto grid max-w-6xl items-start gap-10 px-4 py-14 lg:grid-cols-2">
-          <Placeholder label={business.name} className="h-80 w-full rounded-xl" />
+          {business.image ? (
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
+              <Image src={business.image} alt={business.name} fill sizes="(max-width: 1024px) 100vw, 560px" className="object-cover" />
+            </div>
+          ) : (
+            <Placeholder label={business.name} className="h-80 w-full rounded-xl" />
+          )}
           <div className="space-y-5 leading-relaxed text-foreground/80">
             <p>{business.teaser}</p>
             <p>

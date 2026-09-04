@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import Placeholder from "@/components/Placeholder";
@@ -29,11 +30,18 @@ export default function BusinessCarousel() {
               href={`/${b.slug}`}
               className="card-lift group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-[0_6px_24px_rgba(30,38,92,0.06)]"
             >
-              <div className="overflow-hidden">
-                <Placeholder
-                  label=""
-                  className="h-52 w-full transition-transform duration-500 group-hover:scale-105"
-                />
+              <div className="relative h-52 w-full overflow-hidden">
+                {b.image ? (
+                  <Image
+                    src={b.image}
+                    alt={b.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 360px"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <Placeholder label="" className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+                )}
               </div>
               <div className="p-6 text-center">
                 <h2 className="text-[21px] font-medium text-heading transition-colors group-hover:text-accent">

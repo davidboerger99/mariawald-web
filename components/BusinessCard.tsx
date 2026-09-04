@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Placeholder from "@/components/Placeholder";
 import type { Business } from "@/lib/content";
@@ -8,11 +9,18 @@ export default function BusinessCard({ item }: { item: Business }) {
       href={`/${item.slug}`}
       className="card-lift group block overflow-hidden rounded-2xl border border-black/5 bg-white shadow-[0_6px_24px_rgba(30,38,92,0.06)]"
     >
-      <div className="overflow-hidden">
-        <Placeholder
-          label=""
-          className="h-40 w-full transition-transform duration-500 group-hover:scale-105"
-        />
+      <div className="relative h-40 w-full overflow-hidden">
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            sizes="(max-width: 768px) 100vw, 300px"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        ) : (
+          <Placeholder label="" className="h-full w-full transition-transform duration-500 group-hover:scale-105" />
+        )}
       </div>
       <div className="p-5">
         <h3 className="text-[17px] font-medium text-heading transition-colors group-hover:text-accent">

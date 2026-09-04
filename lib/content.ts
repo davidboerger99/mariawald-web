@@ -190,13 +190,14 @@ export const serviceTimes: ServiceTime[] = [
   },
 ];
 
-export type Business = { slug: string; name: string; teaser: string };
+export type Business = { slug: string; name: string; teaser: string; image?: string };
 
 export const businesses: Business[] = [
   {
     slug: "klosterladen",
     name: "Klosterladen",
     teaser: "Klosterprodukte, Devotionalien und Geschenke aus Mariawald und anderen Klöstern.",
+    image: "/images/mariawald/klosterladen.jpg",
   },
   {
     slug: "klostergaststaette",
@@ -207,11 +208,13 @@ export const businesses: Business[] = [
     slug: "likoermanufaktur",
     name: "Likörmanufaktur",
     teaser: "Der Mariawalder Klosterlikör wird bis heute nach überlieferter Rezeptur hergestellt.",
+    image: "/images/mariawald/likoerfabrik.jpg",
   },
   {
     slug: "buchhandlung",
-    name: "Buchhandlung",
+    name: "Buch- und Kunsthandlung",
     teaser: "Ausgewählte Literatur zu Spiritualität, Theologie und Geschichte der Region.",
+    image: "/images/mariawald/buchhandlung.jpg",
   },
   {
     slug: "gaestehaus",
