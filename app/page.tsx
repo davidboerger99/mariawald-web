@@ -3,7 +3,6 @@ import Hero from "@/components/Hero";
 import KlosterIntro from "@/components/KlosterIntro";
 import EventsCarousel from "@/components/EventsCarousel";
 import EventsList from "@/components/EventsList";
-import NewsSection from "@/components/NewsSection";
 
 export default function Home() {
   return (
@@ -49,8 +48,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <NewsSection />
     </>
   );
 }

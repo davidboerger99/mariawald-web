@@ -2,8 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState } from "react";
-import { events } from "@/lib/content";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { events, type EventItem } from "@/lib/content";
+
+// die nächsten `count` Sonntage ab `fromISO` (inkl. heute, falls Sonntag)
+function upcomingSundays(fromISO: string, count: number): string[] {
+  const [y, m, d] = fromISO.split("-").map(Number);
+  let dt = new Date(Date.UTC(y, m - 1, d));
+  dt = new Date(dt.getTime() + ((7 - dt.getUTCDay()) % 7) * 86400000);
+  const out: string[] = [];
+  for (let i = 0; i < count; i++) {
+    out.push(dt.toISOString().slice(0, 10));
+    dt = new Date(dt.getTime() + 7 * 86400000);
+  }
+  return out;
+}
 
 const monthNames = [
   "Januar", "Februar", "März", "April", "Mai", "Juni",
@@ -32,9 +45,47 @@ function formatDate(iso: string, endIso?: string) {
 }
 
 export default function EventsCarousel() {
-  const sorted = [...events].sort((a, b) => a.date.localeCompare(b.date));
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const [today, setToday] = useState<string | null>(null);
+  useEffect(() => {
+    setToday(new Date().toISOString().slice(0, 10));
+  }, []);
+
+  // Sondertermine plus die wiederkehrenden Sonntagstermine, chronologisch
+  const sorted = useMemo(() => {
+    const generated: EventItem[] = [];
+    if (today) {
+      for (const dISO of upcomingSundays(today, 8)) {
+        generated.push({
+          slug: `sonntagsmesse-${dISO}`,
+          title: "Heilige Messe",
+          date: dISO,
+          time: "10:00 Uhr",
+          location: "Abteikirche",
+          category: "Gottesdienst",
+          href: "/gottesdienstzeiten",
+          teaser: "",
+        });
+        for (const time of ["12:30 Uhr", "14:00 Uhr"]) {
+          generated.push({
+            slug: `sonntagsfuehrung-${dISO}-${time.slice(0, 5).replace(":", "")}`,
+            title: "Klosterführung",
+            date: dISO,
+            time,
+            location: "Treffpunkt Klosterpforte",
+            category: "Führung",
+            href: "/klosterfuehrungen",
+            teaser: "",
+          });
+        }
+      }
+    }
+    let list = [...events, ...generated];
+    if (today) list = list.filter((e) => (e.endDate ?? e.date) >= today);
+    list.sort((a, b) => a.date.localeCompare(b.date) || (a.time ?? "").localeCompare(b.time ?? ""));
+    return list.slice(0, 12);
+  }, [today]);
 
   function onScroll() {
     const el = trackRef.current;
@@ -62,7 +113,7 @@ export default function EventsCarousel() {
   }
 
   return (
-    <section className="overflow-hidden bg-white py-20">
+    <section id="veranstaltungen" className="scroll-mt-24 overflow-hidden bg-white py-20">
       {/* Kopfbereich in der zentrierten Spalte */}
       <div className="mx-auto max-w-[1240px] px-5 lg:px-9">
         <div className="flex flex-wrap items-start justify-between gap-6">
@@ -112,7 +163,7 @@ export default function EventsCarousel() {
         {sorted.map((ev, i) => (
           <Link
             key={ev.slug}
-            href={`/veranstaltungen/${ev.slug}`}
+            href={ev.href ?? `/veranstaltungen/${ev.slug}`}
             className="group w-[290px] shrink-0 sm:w-[340px]"
           >
             <div className="relative aspect-square w-full overflow-hidden">
