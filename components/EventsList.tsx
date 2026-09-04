@@ -32,6 +32,7 @@ type Props = {
   limit?: number;
   showFilters?: boolean;
   category?: string; // nur diese Kategorie anzeigen (z. B. "Führung")
+  categories?: string[]; // mehrere Kategorien zulassen (z. B. ["Gottesdienst", "Führung"])
   upcomingOnly?: boolean; // nur anstehende Termine (ab heute)
   sundayTours?: boolean; // wiederkehrende Sonntagsführungen (12:30 & 14:00 Uhr) einblenden
   sundayMass?: boolean; // wiederkehrende Sonntagsmesse (10:00 Uhr) einblenden
@@ -50,7 +51,7 @@ function upcomingSundays(fromISO: string, count: number): string[] {
   return out;
 }
 
-export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false, sundayTours = false, sundayMass = false }: Props) {
+export default function EventsList({ limit, showFilters = true, category, categories, upcomingOnly = false, sundayTours = false, sundayMass = false }: Props) {
   const [active, setActive] = useState<string | null>(null);
   // "heute" erst nach dem Mounten setzen, um Hydration-Unterschiede zu vermeiden
   const [today, setToday] = useState<string | null>(null);
@@ -101,11 +102,12 @@ export default function EventsList({ limit, showFilters = true, category, upcomi
       (a, b) => a.date.localeCompare(b.date) || (a.time ?? "").localeCompare(b.time ?? ""),
     );
     if (category) list = list.filter((e) => e.category === category);
+    if (categories) list = list.filter((e) => categories.includes(e.category));
     if (upcomingOnly && today) list = list.filter((e) => (e.endDate ?? e.date) >= today);
     if (active) list = list.filter((e) => e.category === active);
     if (limit) list = list.slice(0, limit);
     return list;
-  }, [active, limit, category, upcomingOnly, today, sundayEvents, sundayMassEvents]);
+  }, [active, limit, category, categories, upcomingOnly, today, sundayEvents, sundayMassEvents]);
 
   // nach Monat/Jahr gruppieren
   const groups = useMemo(() => {
