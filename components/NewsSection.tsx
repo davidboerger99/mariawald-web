@@ -18,7 +18,7 @@ export default function NewsSection() {
               key={n.slug}
               className="card-lift group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-[0_6px_24px_rgba(30,38,92,0.06)]"
             >
-              <Link href={`/nachrichten/${n.slug}`} className="flex h-full flex-col">
+              <Link href={n.href ?? `/nachrichten/${n.slug}`} className="flex h-full flex-col">
                 <div className="overflow-hidden">
                   <Placeholder
                     label=""
