@@ -41,8 +41,8 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-cream transition-shadow ${
-        scrolled ? "shadow-[0_2px_16px_rgba(30,38,92,0.10)]" : ""
+      className={`sticky top-0 z-50 border-b border-black/5 bg-white transition-shadow ${
+        scrolled ? "shadow-[0_2px_16px_rgba(30,38,92,0.08)]" : ""
       }`}
     >
       <div className="mx-auto flex max-w-[1240px] items-center px-5 py-2 lg:px-9">
@@ -75,7 +75,7 @@ export default function Header() {
               </Link>
               {item.children && (
                 <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <ul className="min-w-[240px] bg-[#f0dcb4] p-2 shadow-[0_18px_50px_rgba(30,38,92,0.18)]">
+                  <ul className="min-w-[240px] bg-cream p-2 shadow-[0_18px_50px_rgba(30,38,92,0.18)]">
                     {item.children.map((child) => (
                       <li key={child.href + child.label}>
                         <Link
@@ -97,7 +97,7 @@ export default function Header() {
         {cta && (
           <Link
             href={cta.href}
-            className="ml-7 hidden rounded-full bg-navy px-6 text-[14px] font-bold uppercase leading-[40px] tracking-wide text-white transition-colors hover:bg-navy-dark lg:inline-block"
+            className="ml-7 hidden rounded-full bg-logo-gold px-6 text-[14px] font-bold uppercase leading-[40px] tracking-wide text-[#353535] transition-colors hover:bg-logo-gold-dark lg:inline-block"
           >
             {cta.label}
           </Link>
@@ -119,7 +119,7 @@ export default function Header() {
 
       {/* Mobile-Overlay */}
       {openMobile && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-cream lg:hidden">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-white lg:hidden">
           <div className="flex items-center justify-between px-5 py-3">
             <Image
               src="/images/logo-kloster-mariawald-transparent.png"
@@ -183,7 +183,7 @@ export default function Header() {
             {cta && (
               <Link
                 href={cta.href}
-                className="mt-6 flex items-center justify-center rounded-full bg-navy py-3.5 text-[16px] font-bold uppercase tracking-wide text-white"
+                className="mt-6 flex items-center justify-center rounded-full bg-logo-gold py-3.5 text-[16px] font-bold uppercase tracking-wide text-[#353535]"
                 onClick={() => setOpenMobile(false)}
               >
                 {cta.label}
