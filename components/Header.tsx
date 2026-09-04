@@ -8,7 +8,7 @@ import { nav } from "@/lib/content";
 
 function Chevron({ className = "" }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" className={`h-3.5 w-3.5 transition-transform duration-200 ${className}`} fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg viewBox="0 0 24 24" className={`h-3.5 w-3.5 transition-transform duration-200 ${className}`} fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="m6 9 6 6 6-6" />
     </svg>
   );
@@ -41,44 +41,46 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b bg-white transition-shadow ${
-        scrolled ? "border-black/5 shadow-[0_2px_16px_rgba(0,0,0,0.06)]" : "border-black/5"
+      className={`sticky top-0 z-50 bg-cream transition-shadow ${
+        scrolled ? "shadow-[0_2px_16px_rgba(30,38,92,0.10)]" : ""
       }`}
     >
       <div className="mx-auto flex max-w-[1240px] items-center px-5 py-2 lg:px-9">
-        {/* Logo Kloster Mariawald (führt zur Startseite) */}
+        {/* Logo */}
         <Link href="/" aria-label="Zur Startseite" className="flex items-center">
           <Image
-            src="/images/logo-kloster-mariawald.png"
+            src="/images/logo-kloster-mariawald-transparent.png"
             alt="Kloster Mariawald"
             width={261}
             height={180}
             priority
-            className="h-[68px] w-auto"
+            className="h-16 w-auto"
           />
         </Link>
 
-        {/* Menüpunkte mittig */}
-        <nav aria-label="Hauptnavigation" className="ml-auto hidden items-center gap-8 lg:flex">
+        {/* Menü in Großbuchstaben */}
+        <nav aria-label="Hauptnavigation" className="ml-auto hidden items-center gap-7 lg:flex">
           {items.map((item) => (
             <div key={item.label} className="group relative">
               <Link
                 href={item.href}
-                className={`flex items-center gap-1 py-2 text-[15px] font-medium transition-colors ${
-                  isActive(item.href) ? "text-accent" : "text-heading/80 hover:text-heading"
+                className={`flex items-center gap-1.5 py-2 text-[15px] font-bold tracking-wide uppercase transition-colors ${
+                  isActive(item.href)
+                    ? "text-logo-red underline decoration-2 underline-offset-8"
+                    : "text-navy hover:text-logo-red"
                 }`}
               >
                 {item.label}
-                {item.children && <Chevron className="opacity-50 group-hover:rotate-180" />}
+                {item.children && <Chevron className="opacity-70 group-hover:rotate-180" />}
               </Link>
               {item.children && (
-                <div className="invisible absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                  <ul className="min-w-[230px] translate-y-1 rounded-2xl border border-black/5 bg-white p-1.5 shadow-[0_18px_50px_rgba(0,0,0,0.16)] transition-transform duration-200 group-hover:translate-y-0">
+                <div className="invisible absolute left-0 top-full pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                  <ul className="min-w-[240px] bg-[#f0dcb4] p-2 shadow-[0_18px_50px_rgba(30,38,92,0.18)]">
                     {item.children.map((child) => (
                       <li key={child.href + child.label}>
                         <Link
                           href={child.href}
-                          className="block rounded-xl px-4 py-2.5 text-[15px] text-heading/80 transition-colors hover:bg-accent/10 hover:text-accent"
+                          className="block px-4 py-2.5 text-[13px] font-bold tracking-wide text-navy uppercase transition-colors hover:text-logo-red"
                         >
                           {child.label}
                         </Link>
@@ -91,25 +93,25 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* Mitglieder-Login-Button rechts (Pill, Großbuchstaben, Poppins fett) */}
+        {/* Login-Pill */}
         {cta && (
           <Link
             href={cta.href}
-            className="ml-8 hidden rounded-full bg-logo-gold px-[19px] text-[16px] font-bold uppercase leading-[38px] tracking-wide text-[#353535] transition-colors duration-200 hover:bg-logo-gold-dark lg:inline-block"
+            className="ml-7 hidden rounded-full bg-navy px-6 text-[14px] font-bold uppercase leading-[40px] tracking-wide text-white transition-colors hover:bg-navy-dark lg:inline-block"
           >
             {cta.label}
           </Link>
         )}
 
-        {/* Mobile: Menü-Button */}
+        {/* Mobile Menü-Button */}
         <button
           type="button"
-          className="ml-auto flex h-10 w-10 items-center justify-center rounded-full text-heading hover:bg-black/5 lg:hidden"
+          className="ml-auto flex h-10 w-10 items-center justify-center rounded-full text-navy hover:bg-navy/5 lg:hidden"
           aria-expanded={openMobile}
           aria-label="Menü öffnen"
           onClick={() => setOpenMobile(true)}
         >
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16" />
           </svg>
         </button>
@@ -117,34 +119,34 @@ export default function Header() {
 
       {/* Mobile-Overlay */}
       {openMobile && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-white lg:hidden">
-          <div className="flex items-center justify-between border-b border-black/5 px-5 py-3">
+        <div className="fixed inset-0 z-[60] flex flex-col bg-cream lg:hidden">
+          <div className="flex items-center justify-between px-5 py-3">
             <Image
-              src="/images/logo-kloster-mariawald.png"
+              src="/images/logo-kloster-mariawald-transparent.png"
               alt="Kloster Mariawald"
               width={261}
               height={180}
-              className="h-11 w-auto"
+              className="h-12 w-auto"
             />
             <button
               type="button"
-              className="flex h-10 w-10 items-center justify-center rounded-full hover:bg-black/5"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-navy hover:bg-navy/5"
               aria-label="Menü schließen"
               onClick={() => setOpenMobile(false)}
             >
-              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+              <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" aria-hidden="true">
                 <path d="M6 6l12 12M18 6 6 18" />
               </svg>
             </button>
           </div>
           <nav aria-label="Mobile Navigation" className="flex-1 overflow-y-auto px-6 pb-10">
-            <ul className="mx-auto max-w-md divide-y divide-black/5 pt-2">
+            <ul className="mx-auto max-w-md pt-4">
               {items.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className="border-b border-navy/10">
                   <div className="flex items-center justify-between">
                     <Link
                       href={item.href}
-                      className="block py-3.5 text-[20px] font-medium text-heading"
+                      className="block py-4 text-[18px] font-bold tracking-wide text-navy uppercase"
                       onClick={() => setOpenMobile(false)}
                     >
                       {item.label}
@@ -152,7 +154,7 @@ export default function Header() {
                     {item.children && (
                       <button
                         type="button"
-                        className="flex h-9 w-9 items-center justify-center rounded-full bg-black/5 text-heading"
+                        className="flex h-9 w-9 items-center justify-center rounded-full text-navy"
                         aria-label={`Unterpunkte zu ${item.label} anzeigen`}
                         onClick={() => setOpenSub(openSub === item.label ? null : item.label)}
                       >
@@ -161,12 +163,12 @@ export default function Header() {
                     )}
                   </div>
                   {item.children && openSub === item.label && (
-                    <ul className="mb-2 space-y-0.5 border-l border-black/10 pl-4">
+                    <ul className="pb-3 pl-4">
                       {item.children.map((child) => (
                         <li key={child.href + child.label}>
                           <Link
                             href={child.href}
-                            className="block py-1.5 text-[15px] text-heading/70"
+                            className="block py-2 text-[14px] font-bold tracking-wide text-navy/70 uppercase"
                             onClick={() => setOpenMobile(false)}
                           >
                             {child.label}
@@ -181,7 +183,7 @@ export default function Header() {
             {cta && (
               <Link
                 href={cta.href}
-                className="mt-6 flex items-center justify-center rounded-full bg-logo-gold py-3.5 text-[17px] font-bold uppercase tracking-wide text-[#353535]"
+                className="mt-6 flex items-center justify-center rounded-full bg-navy py-3.5 text-[16px] font-bold uppercase tracking-wide text-white"
                 onClick={() => setOpenMobile(false)}
               >
                 {cta.label}
