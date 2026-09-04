@@ -33,13 +33,6 @@ export const nav: NavItem[] = [
     href: "/unser-kloster",
     children: [
       { label: "Über uns", href: "/unser-kloster/ueber-uns" },
-      { label: "Kirche und Kloster", href: "/unser-kloster/kirche-und-kloster" },
-      { label: "Leben im Kloster", href: "/unser-kloster/leben-im-kloster" },
-      { label: "Geschichte", href: "/unser-kloster/geschichte" },
-      { label: "Kirchenmusik", href: "/kirchenmusik" },
-      { label: "Gottesdienstzeiten", href: "/gottesdienstzeiten" },
-      { label: "Förderverein Freundeskreis", href: "/freundeskreis" },
-      { label: "Gebetsanliegen", href: "/gebetsanliegen" },
     ],
   },
 
