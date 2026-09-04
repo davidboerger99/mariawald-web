@@ -30,7 +30,7 @@ export default function NewsSection() {
                     <span className="rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
                       {n.category === "Kloster" ? "Aus Kloster & Konvent" : n.category}
                     </span>
-                    <span className="text-[#999]">{formatDate(n.date)}</span>
+                    {n.date && <span className="text-[#999]">{formatDate(n.date)}</span>}
                   </div>
                   <h2 className="mt-4 text-[19px] font-medium leading-snug text-heading transition-colors group-hover:text-accent">
                     {n.title}

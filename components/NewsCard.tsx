@@ -5,7 +5,7 @@ import { formatDate, type NewsItem } from "@/lib/content";
 export default function NewsCard({ item }: { item: NewsItem }) {
   return (
     <article className="card-lift group overflow-hidden rounded-2xl border border-black/5 bg-white shadow-[0_6px_24px_rgba(30,38,92,0.06)]">
-      <Link href={`/nachrichten/${item.slug}`} className="flex h-full flex-col">
+      <Link href={item.href ?? `/nachrichten/${item.slug}`} className="flex h-full flex-col">
         <div className="overflow-hidden">
           <Placeholder
             label=""
@@ -17,7 +17,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
             <span className="rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
               {item.category === "Kloster" ? "Aus Kloster & Konvent" : item.category}
             </span>
-            <span className="text-[#999]">{formatDate(item.date)}</span>
+            {item.date && <span className="text-[#999]">{formatDate(item.date)}</span>}
           </div>
           <h3 className="mt-4 text-[18px] font-medium leading-snug text-heading transition-colors group-hover:text-accent">
             {item.title}

@@ -32,7 +32,8 @@ export default async function NachrichtPage({ params }: PageProps<"/nachrichten/
       />
       <Prose>
         <p className="text-sm text-foreground/50">
-          {item.category} · {formatDate(item.date)}
+          {item.category}
+          {item.date ? ` · ${formatDate(item.date)}` : ""}
         </p>
         <p className="text-lg">{item.teaser}</p>
         <p>

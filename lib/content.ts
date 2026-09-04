@@ -60,49 +60,56 @@ export type NewsItem = {
   slug: string;
   title: string;
   teaser: string;
-  date: string;
+  date?: string; // optional; wird nur angezeigt, wenn gesetzt
+  href?: string; // optionales Linkziel (statt der automatischen Detailseite)
   category: "Neuigkeiten" | "Kloster" | "Veranstaltung";
 };
 
 export const news: NewsItem[] = [
   {
-    slug: "wallfahrtssaison-eroeffnet",
-    title: "Wallfahrtssaison in Mariawald eröffnet",
+    slug: "mariawalder-buechertisch",
+    title: "Mariawalder Büchertisch",
     teaser:
-      "Mit einem feierlichen Hochamt wurde die diesjährige Wallfahrtssaison eröffnet. Pilgerinnen und Pilger aus der ganzen Region kamen auf den Kermeter.",
-    date: "2026-07-26",
-    category: "Kloster",
-  },
-  {
-    slug: "orgelkonzert-sommer",
-    title: "Sommerliches Orgelkonzert in der Abteikirche",
-    teaser:
-      "Die Reihe der Sommerkonzerte wird mit Werken von Bach und Mendelssohn fortgesetzt. Der Eintritt ist frei, um eine Spende wird gebeten.",
-    date: "2026-07-18",
+      "Der Förderverein lädt am Samstag, 29., und Sonntag, 30. August 2026, jeweils von 11 bis 17 Uhr, wieder zum traditionellen Mariawalder Büchertisch ein.",
+    date: "2026-08-29",
     category: "Veranstaltung",
   },
   {
-    slug: "neue-oeffnungszeiten-klosterladen",
-    title: "Neue Öffnungszeiten im Klosterladen",
+    slug: "herzlich-willkommen",
+    title: "Herzlich willkommen in Mariawald",
     teaser:
-      "Ab August öffnet der Klosterladen auch sonntags nach dem Hochamt. Damit reagieren wir auf die vielen Besucher am Wochenende.",
-    date: "2026-07-10",
-    category: "Neuigkeiten",
-  },
-  {
-    slug: "restaurierung-kreuzgang",
-    title: "Restaurierung des Kreuzgangs abgeschlossen",
-    teaser:
-      "Nach zweijähriger Bauzeit erstrahlt der historische Kreuzgang in neuem Glanz. Führungen sind ab sofort wieder möglich.",
-    date: "2026-06-28",
+      "Ob Sie einen Ausflug planen, ein religiöses Angebot suchen oder dem Kloster seit Langem verbunden sind – in Mariawald sind Sie herzlich willkommen.",
     category: "Kloster",
   },
   {
-    slug: "besuch-aus-dem-bistum",
-    title: "Besuch aus dem Bistum Aachen",
+    slug: "klosterfuehrungen",
+    title: "Klosterführungen",
     teaser:
-      "Eine Delegation des Bistums informierte sich über die Zukunftspläne für den Klosterstandort Mariawald.",
-    date: "2026-06-15",
+      "Blicken Sie hinter die alten Klostermauern und erhalten Sie Einblick in das Leben der Trappisten. Exklusive Führungen, ca. eine Stunde, Treffpunkt Klosterpforte. Anmeldung im Klosterladen.",
+    href: "/klosterfuehrungen",
+    category: "Kloster",
+  },
+  {
+    slug: "mariawalder-buecherschrank",
+    title: "Mariawalder Bücherschrank",
+    teaser:
+      "Im Bücherschrank an der Klosterpforte finden Sie Bücher, die dem Kloster geschenkt wurden, gelegentlich auch Schallplatten und ausgemusterte Bände aus der Klosterbibliothek.",
+    category: "Kloster",
+  },
+  {
+    slug: "klosterprodukte-online",
+    title: "Einkaufen vor Ort oder online bestellen",
+    teaser:
+      "Im Klosterladen gibt es Kunst, Literatur und das komplette Sortiment eigener Klosterprodukte – von der Mariawalder Erbsensuppe über die Klosterliköre bis zu hauseigenem Gebäck. Vieles ist auch online erhältlich.",
+    href: "/klosterladen",
+    category: "Kloster",
+  },
+  {
+    slug: "neuer-traeger",
+    title: "Mariawald bleibt ein Ort mit spiritueller Strahlkraft",
+    teaser:
+      "Seit dem 1. Januar 2021 führt die Kloster Mariawald GmbH & Co. KG die ehemalige Trappistenabtei im Geist der Mönche weiter.",
+    date: "2020-12-01",
     category: "Neuigkeiten",
   },
 ];
