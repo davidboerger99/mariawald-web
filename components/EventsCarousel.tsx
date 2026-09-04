@@ -110,7 +110,7 @@ export default function EventsCarousel() {
           >
             <div className="relative aspect-square w-full overflow-hidden">
               <Image
-                src={fallbackImages[i % fallbackImages.length]}
+                src={n.image ?? fallbackImages[i % fallbackImages.length]}
                 alt={n.title}
                 fill
                 sizes="340px"
