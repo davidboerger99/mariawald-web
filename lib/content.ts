@@ -73,7 +73,7 @@ export const news: NewsItem[] = [
     teaser:
       "Der Förderverein lädt am Samstag, 29., und Sonntag, 30. August 2026, jeweils von 11 bis 17 Uhr, wieder zum traditionellen Mariawalder Büchertisch ein.",
     date: "2026-08-29",
-    image: "/images/mariawald/winter-ansicht.jpg",
+    image: "/images/mariawald/buechertisch.jpg",
     category: "Veranstaltung",
   },
   {
@@ -81,7 +81,7 @@ export const news: NewsItem[] = [
     title: "Herzlich willkommen in Mariawald",
     teaser:
       "Ob Sie einen Ausflug planen, ein religiöses Angebot suchen oder dem Kloster seit Langem verbunden sind – in Mariawald sind Sie herzlich willkommen.",
-    image: "/images/mariawald/abtei-hauptansicht.jpg",
+    image: "/images/mariawald/willkommen.jpg",
     category: "Kloster",
   },
   {
@@ -98,7 +98,7 @@ export const news: NewsItem[] = [
     title: "Mariawalder Bücherschrank",
     teaser:
       "Im Bücherschrank an der Klosterpforte finden Sie Bücher, die dem Kloster geschenkt wurden, gelegentlich auch Schallplatten und ausgemusterte Bände aus der Klosterbibliothek.",
-    image: "/images/mariawald/ostseite.jpg",
+    image: "/images/mariawald/buecherschrank.jpg",
     category: "Kloster",
   },
   {
@@ -107,7 +107,7 @@ export const news: NewsItem[] = [
     teaser:
       "Im Klosterladen gibt es Kunst, Literatur und das komplette Sortiment eigener Klosterprodukte – von der Mariawalder Erbsensuppe über die Klosterliköre bis zu hauseigenem Gebäck. Vieles ist auch online erhältlich.",
     href: "/klosterladen",
-    image: "/images/mariawald/abtei-hauptansicht.jpg",
+    image: "/images/mariawald/klosterladen-pakete.jpg",
     category: "Kloster",
   },
   {
@@ -116,7 +116,7 @@ export const news: NewsItem[] = [
     teaser:
       "Seit dem 1. Januar 2021 führt die Kloster Mariawald GmbH & Co. KG die ehemalige Trappistenabtei im Geist der Mönche weiter.",
     date: "2020-12-01",
-    image: "/images/mariawald/gruenderaebte.jpg",
+    image: "/images/mariawald/neuer-traeger.jpg",
     category: "Neuigkeiten",
   },
 ];
