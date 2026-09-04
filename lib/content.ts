@@ -338,9 +338,10 @@ export const discover: DiscoverItem[] = [
 export const site = {
   name: "Abtei Mariawald",
   claim: "Kloster in der Eifel",
-  address: "Abtei Mariawald, 52396 Heimbach/Eifel",
-  phone: "+49 2446 9506-0",
-  email: "info@mariawald.de",
+  address: "Abtei Mariawald 1, 52396 Heimbach",
+  phone: "+49 (0) 2446 950-60",
+  fax: "+49 (0) 2446 950-630",
+  email: "info@kloster-mariawald.de",
 };
 
 export function formatDate(iso: string): string {

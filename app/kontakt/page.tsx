@@ -5,35 +5,18 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Kontakt" };
 
-const contacts = [
-  {
-    label: "Klosterpforte",
-    role: "Allgemeine Anfragen und Besuch",
-    tel: site.phone,
-    email: site.email,
-    icon: (
-      <path d="M4 20V10l8-6 8 6v10h-6v-6h-4v6H4z" />
-    ),
-  },
-  {
-    label: "Gästehaus",
-    role: "Übernachtung und Einkehr",
-    tel: site.phone,
-    email: "gaestehaus@mariawald.de",
-    icon: (
-      <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-5h6v5M9 11h.01M15 11h.01" />
-    ),
-  },
-  {
-    label: "Klosterführungen",
-    role: "Anmeldung und Gruppen",
-    tel: site.phone,
-    email: site.email,
-    icon: (
-      <path d="M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM4 21a8 8 0 0 1 16 0" />
-    ),
-  },
+const departments = [
+  { label: "Pforte & Verwaltung", tel: "+49 (0) 2446 950-612", tel2: "+49 (0) 2446 950-611", fax: "+49 (0) 2446 950-6218" },
+  { label: "Geschäftsleitung", tel: "+49 (0) 2446 950-614", fax: "+49 (0) 2446 950-6218" },
+  { label: "Klostergaststätte", tel: "+49 (0) 2446 950-616" },
+  { label: "Kunst- & Buchhandlung", tel: "+49 (0) 2446 950-629" },
+  { label: "Klosterladen", tel: "+49 (0) 2446 950-629" },
+  { label: "Likörfabrik", tel: "+49 (0) 2446 950-618", fax: "+49 (0) 2446 950-6218" },
 ];
+
+function telHref(t: string) {
+  return "tel:" + t.replace("(0)", "").replace(/[^+\d]/g, "");
+}
 
 export default function KontaktPage() {
   return (
@@ -52,45 +35,62 @@ export default function KontaktPage() {
           </div>
         </div>
 
-        {/* Ansprechstellen */}
+        {/* Kontaktdaten */}
         <div>
-          <h2 className="text-[28px] font-bold text-heading sm:text-[32px]">Ansprechstellen</h2>
-          <ul className="mt-8 space-y-8">
-            {contacts.map((c) => (
-              <li key={c.label} className="flex gap-5">
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-cream text-logo-red">
-                  <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    {c.icon}
-                  </svg>
+          <h2 className="text-[28px] font-bold text-heading sm:text-[32px]">Kloster Mariawald</h2>
+
+          <div className="mt-6 rounded-2xl border border-black/5 bg-muted p-6">
+            <address className="text-[15px] leading-relaxed text-foreground/85 not-italic">
+              Abtei Mariawald 1
+              <br />
+              52396 Heimbach
+            </address>
+            <dl className="mt-4 space-y-1 text-[15px]">
+              <div className="flex gap-3">
+                <dt className="w-16 shrink-0 text-foreground/60">Telefon</dt>
+                <dd>
+                  <a href={telHref(site.phone)} className="text-navy hover:text-logo-red">
+                    {site.phone}
+                  </a>
+                </dd>
+              </div>
+              <div className="flex gap-3">
+                <dt className="w-16 shrink-0 text-foreground/60">Fax</dt>
+                <dd className="text-foreground/80">{site.fax}</dd>
+              </div>
+              <div className="flex gap-3">
+                <dt className="w-16 shrink-0 text-foreground/60">E-Mail</dt>
+                <dd>
+                  <a href={`mailto:${site.email}`} className="text-navy underline hover:text-logo-red">
+                    {site.email}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+
+          <h3 className="mt-10 text-[18px] font-bold text-heading">Durchwahlen</h3>
+          <ul className="mt-4 divide-y divide-black/10 border-t border-black/10">
+            {departments.map((d) => (
+              <li key={d.label} className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 py-3">
+                <span className="text-[15px] font-semibold text-heading">{d.label}</span>
+                <span className="text-[14px] text-foreground/80">
+                  <a href={telHref(d.tel)} className="text-navy hover:text-logo-red">
+                    {d.tel}
+                  </a>
+                  {d.tel2 && (
+                    <>
+                      {" / "}
+                      <a href={telHref(d.tel2)} className="text-navy hover:text-logo-red">
+                        {d.tel2}
+                      </a>
+                    </>
+                  )}
+                  {d.fax && <span className="text-foreground/50"> · Fax {d.fax}</span>}
                 </span>
-                <div>
-                  <p className="text-[18px] font-bold text-heading">{c.label}</p>
-                  <p className="text-[14px] text-foreground/70">{c.role}</p>
-                  <p className="mt-1 text-[14px]">
-                    <a href={`tel:${c.tel.replace(/[^+\d]/g, "")}`} className="text-navy hover:text-logo-red">
-                      {c.tel}
-                    </a>
-                  </p>
-                  <p className="text-[14px]">
-                    <a href={`mailto:${c.email}`} className="text-navy underline hover:text-logo-red">
-                      {c.email}
-                    </a>
-                  </p>
-                </div>
               </li>
             ))}
           </ul>
-
-          <div className="mt-10 rounded-2xl border border-black/5 bg-muted p-6">
-            <h3 className="text-[16px] font-bold text-heading">Anschrift</h3>
-            <address className="mt-2 text-[15px] leading-relaxed text-foreground/80 not-italic">
-              Abtei Mariawald
-              <br />
-              D-52396 Heimbach/Eifel
-              <br />
-              Telefon: {site.phone}
-            </address>
-          </div>
         </div>
       </div>
     </>
