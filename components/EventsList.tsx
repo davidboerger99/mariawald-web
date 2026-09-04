@@ -34,6 +34,7 @@ type Props = {
   category?: string; // nur diese Kategorie anzeigen (z. B. "Führung")
   upcomingOnly?: boolean; // nur anstehende Termine (ab heute)
   sundayTours?: boolean; // wiederkehrende Sonntagsführungen (12:30 & 14:00 Uhr) einblenden
+  sundayMass?: boolean; // wiederkehrende Sonntagsmesse (10:00 Uhr) einblenden
 };
 
 // die nächsten `count` Sonntage ab `fromISO` (inkl. heute, falls Sonntag)
@@ -49,7 +50,7 @@ function upcomingSundays(fromISO: string, count: number): string[] {
   return out;
 }
 
-export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false, sundayTours = false }: Props) {
+export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false, sundayTours = false, sundayMass = false }: Props) {
   const [active, setActive] = useState<string | null>(null);
   // "heute" erst nach dem Mounten setzen, um Hydration-Unterschiede zu vermeiden
   const [today, setToday] = useState<string | null>(null);
@@ -79,8 +80,24 @@ export default function EventsList({ limit, showFilters = true, category, upcomi
     return out;
   }, [sundayTours, today]);
 
+  // wiederkehrende Sonntagsmesse
+  const sundayMassEvents = useMemo(() => {
+    if (!sundayMass || !today) return [] as EventItem[];
+    return upcomingSundays(today, 6).map((dISO): EventItem => ({
+      slug: `sonntagsmesse-${dISO}`,
+      title: "Heilige Messe",
+      date: dISO,
+      time: "10:00 Uhr",
+      location: "Abteikirche",
+      category: "Gottesdienst",
+      href: "/gottesdienstzeiten",
+      teaser:
+        "Alle Freunde und Besucher der Abtei sind herzlich zur Mitfeier eingeladen. Zelebrant: Pfarrer Prof. Dr. Christian Blumenthal.",
+    }));
+  }, [sundayMass, today]);
+
   const shown = useMemo(() => {
-    let list = [...events, ...sundayEvents].sort(
+    let list = [...events, ...sundayEvents, ...sundayMassEvents].sort(
       (a, b) => a.date.localeCompare(b.date) || (a.time ?? "").localeCompare(b.time ?? ""),
     );
     if (category) list = list.filter((e) => e.category === category);
@@ -88,7 +105,7 @@ export default function EventsList({ limit, showFilters = true, category, upcomi
     if (active) list = list.filter((e) => e.category === active);
     if (limit) list = list.slice(0, limit);
     return list;
-  }, [active, limit, category, upcomingOnly, today, sundayEvents]);
+  }, [active, limit, category, upcomingOnly, today, sundayEvents, sundayMassEvents]);
 
   // nach Monat/Jahr gruppieren
   const groups = useMemo(() => {
