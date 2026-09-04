@@ -121,6 +121,7 @@ export type EventItem = {
   time?: string;
   location: string;
   category: string; // muss zu einem Eintrag in eventCategories passen
+  image?: string; // Bild für die Karussell-Karte (z. B. "/images/xy.jpg")
   teaser: string;
 };
 
