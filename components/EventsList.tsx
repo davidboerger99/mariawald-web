@@ -33,9 +33,23 @@ type Props = {
   showFilters?: boolean;
   category?: string; // nur diese Kategorie anzeigen (z. B. "Führung")
   upcomingOnly?: boolean; // nur anstehende Termine (ab heute)
+  sundayTours?: boolean; // wiederkehrende Sonntagsführungen (12:30 & 14:00 Uhr) einblenden
 };
 
-export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false }: Props) {
+// die nächsten `count` Sonntage ab `fromISO` (inkl. heute, falls Sonntag)
+function upcomingSundays(fromISO: string, count: number): string[] {
+  const [y, m, d] = fromISO.split("-").map(Number);
+  let dt = new Date(Date.UTC(y, m - 1, d));
+  dt = new Date(dt.getTime() + ((7 - dt.getUTCDay()) % 7) * 86400000);
+  const out: string[] = [];
+  for (let i = 0; i < count; i++) {
+    out.push(dt.toISOString().slice(0, 10));
+    dt = new Date(dt.getTime() + 7 * 86400000);
+  }
+  return out;
+}
+
+export default function EventsList({ limit, showFilters = true, category, upcomingOnly = false, sundayTours = false }: Props) {
   const [active, setActive] = useState<string | null>(null);
   // "heute" erst nach dem Mounten setzen, um Hydration-Unterschiede zu vermeiden
   const [today, setToday] = useState<string | null>(null);
@@ -43,14 +57,38 @@ export default function EventsList({ limit, showFilters = true, category, upcomi
     setToday(new Date().toISOString().slice(0, 10));
   }, []);
 
+  // wiederkehrende Sonntagsführungen als Termine erzeugen
+  const sundayEvents = useMemo(() => {
+    if (!sundayTours || !today) return [] as EventItem[];
+    const out: EventItem[] = [];
+    for (const dISO of upcomingSundays(today, 6)) {
+      for (const time of ["12:30 Uhr", "14:00 Uhr"]) {
+        out.push({
+          slug: `sonntagsfuehrung-${dISO}-${time.slice(0, 5).replace(":", "")}`,
+          title: "Klosterführung",
+          date: dISO,
+          time,
+          location: "Treffpunkt Klosterpforte",
+          category: "Führung",
+          href: "/klosterfuehrungen",
+          teaser:
+            "Rundgang durch den ehemaligen Klausurbereich, ca. 60 Minuten. Kostenbeitrag: 8 € Erwachsene, 4 € Jugendliche.",
+        });
+      }
+    }
+    return out;
+  }, [sundayTours, today]);
+
   const shown = useMemo(() => {
-    let list = [...events].sort((a, b) => a.date.localeCompare(b.date));
+    let list = [...events, ...sundayEvents].sort(
+      (a, b) => a.date.localeCompare(b.date) || (a.time ?? "").localeCompare(b.time ?? ""),
+    );
     if (category) list = list.filter((e) => e.category === category);
     if (upcomingOnly && today) list = list.filter((e) => (e.endDate ?? e.date) >= today);
     if (active) list = list.filter((e) => e.category === active);
     if (limit) list = list.slice(0, limit);
     return list;
-  }, [active, limit, category, upcomingOnly, today]);
+  }, [active, limit, category, upcomingOnly, today, sundayEvents]);
 
   // nach Monat/Jahr gruppieren
   const groups = useMemo(() => {
@@ -109,7 +147,7 @@ export default function EventsList({ limit, showFilters = true, category, upcomi
             {group.items.map((ev) => (
               <li key={ev.slug} className="border-t border-black/10">
                 <Link
-                  href={`/veranstaltungen/${ev.slug}`}
+                  href={ev.href ?? `/veranstaltungen/${ev.slug}`}
                   className="group grid grid-cols-1 gap-1 py-6 sm:grid-cols-[190px_1fr] sm:gap-6"
                 >
                   <div className="pt-1 text-[15px] tabular-nums text-foreground/70">

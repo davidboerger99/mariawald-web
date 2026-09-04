@@ -17,7 +17,7 @@ export default function Home() {
             Anstehende Führungen
           </h2>
           <div className="mt-8">
-            <EventsList category="Führung" upcomingOnly limit={4} showFilters={false} />
+            <EventsList category="Führung" upcomingOnly sundayTours limit={5} showFilters={false} />
           </div>
           <div className="mt-10">
             <Link
