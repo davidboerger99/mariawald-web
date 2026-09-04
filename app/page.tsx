@@ -22,7 +22,7 @@ export default function Home() {
               upcomingOnly
               sundayMass
               sundayTours
-              limit={9}
+              limit={6}
               showFilters={false}
             />
           </div>

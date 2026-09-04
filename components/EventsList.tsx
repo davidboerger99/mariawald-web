@@ -63,7 +63,7 @@ export default function EventsList({ limit, showFilters = true, category, catego
   const sundayEvents = useMemo(() => {
     if (!sundayTours || !today) return [] as EventItem[];
     const out: EventItem[] = [];
-    for (const dISO of upcomingSundays(today, 2)) {
+    for (const dISO of upcomingSundays(today, 8)) {
       for (const time of ["12:30 Uhr", "14:00 Uhr"]) {
         out.push({
           slug: `sonntagsfuehrung-${dISO}-${time.slice(0, 5).replace(":", "")}`,
@@ -84,7 +84,7 @@ export default function EventsList({ limit, showFilters = true, category, catego
   // wiederkehrende Sonntagsmesse
   const sundayMassEvents = useMemo(() => {
     if (!sundayMass || !today) return [] as EventItem[];
-    return upcomingSundays(today, 2).map((dISO): EventItem => ({
+    return upcomingSundays(today, 8).map((dISO): EventItem => ({
       slug: `sonntagsmesse-${dISO}`,
       title: "Heilige Messe",
       date: dISO,
