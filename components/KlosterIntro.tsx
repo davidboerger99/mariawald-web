@@ -1,11 +1,8 @@
 import Link from "next/link";
+import { nav } from "@/lib/content";
 
-const links = [
-  { label: "Kirche und Kloster", href: "/unser-kloster/kirche-und-kloster" },
-  { label: "Klostergaststätte", href: "/klostergaststaette" },
-  { label: "Buchhandlung", href: "/buchhandlung" },
-  { label: "Klosterführungen", href: "/klosterfuehrungen" },
-];
+// Buttons spiegeln die vier Menüpunkte aus dem Navigationsbereich "Kloster".
+const links = nav.find((i) => i.label === "Kloster")?.children ?? [];
 
 export default function KlosterIntro() {
   return (
