@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const mainLinks = [
   { label: "Kontakt", href: "/kontakt" },
@@ -37,6 +40,10 @@ const socials = [
 ];
 
 export default function Footer() {
+  const pathname = usePathname();
+  // Im internen Bereich (Dashboard) wird der öffentliche Footer ausgeblendet.
+  if (pathname?.startsWith("/intern")) return null;
+
   return (
     <footer className="bg-cream text-navy">
       <div className="mx-auto max-w-[1100px] px-6 py-20 text-center">

@@ -18,6 +18,9 @@ export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [openMobile, setOpenMobile] = useState(false);
+
+  // Im internen Bereich (Dashboard) wird die öffentliche Kopfzeile ausgeblendet.
+  const inIntern = pathname?.startsWith("/intern");
   const [openSub, setOpenSub] = useState<string | null>(null);
 
   useEffect(() => {
@@ -38,6 +41,8 @@ export default function Header() {
   const cta = nav.find((i) => i.variant === "login");
 
   const isActive = (href: string) => pathname === href || (href !== "/" && pathname.startsWith(href + "/"));
+
+  if (inIntern) return null;
 
   return (
     <header
