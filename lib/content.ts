@@ -34,6 +34,7 @@ export const nav: NavItem[] = [
     children: [
       { label: "Über uns", href: "/unser-kloster/ueber-uns" },
       { label: "Klosterladen", href: "/klosterladen" },
+      { label: "Buch- und Kunsthandlung", href: "/buchhandlung" },
     ],
   },
 
