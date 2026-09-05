@@ -20,13 +20,7 @@ export const nav: NavItem[] = [
   // 1) Behaltene Menüpunkte -------------------------------------------------
   {
     label: "Aktuelles",
-    href: "/aktuelles",
-    children: [
-      { label: "Veranstaltungen", href: "/veranstaltungen" },
-      { label: "Nachrichten", href: "/nachrichten" },
-      { label: "Aktuelle Gottesdienstzeiten", href: "/gottesdienstzeiten" },
-      { label: "Aktuelle Öffnungszeiten", href: "/oeffnungszeiten" },
-    ],
+    href: "/veranstaltungen",
   },
   {
     label: "Kloster",
