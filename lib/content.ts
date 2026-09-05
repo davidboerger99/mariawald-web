@@ -53,7 +53,7 @@ export const nav: NavItem[] = [
   },
 
   // 4) Mitglieder-Login-Button (rechts, hervorgehoben) ----------------------
-  { label: "Mitglieder Login", href: "/intern", variant: "login" },
+  { label: "Mitglieder Login", href: "/login", variant: "login" },
 ];
 
 export type NewsItem = {

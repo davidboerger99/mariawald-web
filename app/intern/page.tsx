@@ -23,6 +23,17 @@ export default function InternPage() {
       />
 
       <div className="mx-auto max-w-[1200px] px-[35px] py-16">
+        <div className="mb-8 flex justify-end">
+          <a
+            href="/api/logout"
+            className="inline-flex items-center gap-2 rounded-full border border-black/15 px-5 py-2 text-[14px] font-medium text-heading transition-colors hover:border-heading"
+          >
+            Abmelden
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M16 17l5-5-5-5M21 12H9M13 21H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7" />
+            </svg>
+          </a>
+        </div>
         <div className="grid gap-10 lg:grid-cols-[1.6fr_1fr]">
           {/* Mitteilungen */}
           <section>
