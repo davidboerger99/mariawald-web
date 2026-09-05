@@ -33,6 +33,7 @@ export const nav: NavItem[] = [
     href: "/unser-kloster",
     children: [
       { label: "Über uns", href: "/unser-kloster/ueber-uns" },
+      { label: "Klosterladen", href: "/klosterladen" },
     ],
   },
 
