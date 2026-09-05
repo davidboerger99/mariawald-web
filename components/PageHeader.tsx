@@ -22,7 +22,7 @@ export default function PageHeader({
           sizes="100vw"
           className="object-cover object-center"
         />
-        <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/65 via-black/25 to-black/20">
+        <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/85 via-black/55 to-black/35">
           <div className="mx-auto w-full max-w-[1200px] px-[35px] pb-10 text-white">
             <nav aria-label="Brotkrumen" className="text-[12px] text-white/75">
               <ol className="flex flex-wrap gap-1">
@@ -47,7 +47,14 @@ export default function PageHeader({
             >
               {title}
             </h1>
-            {intro && <p className="mt-2 max-w-2xl font-light text-white/90">{intro}</p>}
+            {intro && (
+              <p
+                className="mt-2 max-w-2xl font-light text-white"
+                style={{ textShadow: "0 1px 6px rgba(0,0,0,.55)" }}
+              >
+                {intro}
+              </p>
+            )}
           </div>
         </div>
       </div>
