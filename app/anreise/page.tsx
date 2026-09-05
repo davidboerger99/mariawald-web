@@ -80,6 +80,45 @@ export default function AnreisePage() {
           Zug bis Düren, weiter mit der Rurtalbahn nach Heimbach und von dort mit dem Taxi zur Abtei.
         </p>
       </Prose>
+
+      {/* Karte */}
+      <section className="mx-auto max-w-3xl px-[35px] pb-16">
+        <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
+          <h2 className="text-[24px] font-light text-heading">Lage &amp; Karte</h2>
+          <a
+            href="https://www.google.com/maps/dir/?api=1&destination=Abtei+Mariawald,+52396+Heimbach"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-navy px-5 py-2.5 text-[13px] font-bold uppercase tracking-wide text-white transition-colors hover:bg-navy-dark"
+          >
+            Route planen
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M9 18l6-6-6-6" />
+            </svg>
+          </a>
+        </div>
+        <div className="overflow-hidden rounded-2xl border border-black/10 shadow-[0_10px_30px_rgba(30,38,92,0.08)]">
+          <iframe
+            title="Karte: Abtei Mariawald in Heimbach"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=6.4680%2C50.6128%2C6.4922%2C50.6248&layer=mapnik&marker=50.6188387%2C6.4800691"
+            className="h-[420px] w-full"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+        <p className="mt-3 text-[13px] text-foreground/60">
+          Kartendaten:{" "}
+          <a
+            href="https://www.openstreetmap.org/?mlat=50.6188&mlon=6.4801#map=15/50.6188/6.4801"
+            target="_blank"
+            rel="noreferrer"
+            className="text-accent hover:text-accent-dark"
+          >
+            © OpenStreetMap-Mitwirkende
+          </a>
+          . Adresse: Abtei Mariawald 1, 52396 Heimbach.
+        </p>
+      </section>
     </>
   );
 }
