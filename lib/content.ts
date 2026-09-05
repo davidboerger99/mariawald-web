@@ -35,6 +35,7 @@ export const nav: NavItem[] = [
       { label: "Über uns", href: "/unser-kloster/ueber-uns" },
       { label: "Klosterladen", href: "/klosterladen" },
       { label: "Buch- und Kunsthandlung", href: "/buchhandlung" },
+      { label: "Likörfabrik", href: "/likoermanufaktur" },
     ],
   },
 
