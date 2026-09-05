@@ -63,12 +63,6 @@ export default function NewsSection() {
           >
             Veranstaltungen
           </Link>
-          <Link
-            href="/newsletter"
-            className="rounded-full border border-black/10 px-6 py-2.5 text-[14px] font-medium text-heading transition-all hover:-translate-y-0.5 hover:border-accent hover:text-accent"
-          >
-            Newsletter
-          </Link>
         </div>
       </div>
     </section>

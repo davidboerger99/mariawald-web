@@ -48,7 +48,6 @@ export const nav: NavItem[] = [
       { label: "Kontakt", href: "/kontakt" },
       { label: "Klosterführungen", href: "/klosterfuehrungen" },
       { label: "Anreise und Parken", href: "/anreise" },
-      { label: "Newsletter", href: "/newsletter" },
     ],
   },
 

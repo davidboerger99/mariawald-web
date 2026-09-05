@@ -35,13 +35,6 @@ const simplePages: Record<string, { title: string; intro: string; body: string[]
       "Die Abteikirche ist täglich von 9 bis 18 Uhr geöffnet. Klosterladen und Klostergaststätte öffnen dienstags bis sonntags von 10 bis 17 Uhr.",
     ],
   },
-  newsletter: {
-    title: "Newsletter",
-    intro: "Neuigkeiten aus Mariawald in Ihr Postfach.",
-    body: [
-      "Mit unserem Newsletter informieren wir einmal im Monat über Gottesdienste, Veranstaltungen und Neuigkeiten aus den Klosterbetrieben.",
-    ],
-  },
   karriere: {
     title: "Jobs",
     intro: "Arbeiten in Mariawald.",

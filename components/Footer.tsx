@@ -15,7 +15,6 @@ const legalLinks = [
   { label: "Impressum", href: "/impressum" },
   { label: "Datenschutz", href: "/datenschutz" },
   { label: "Barrierefreiheit", href: "/barrierefreiheit" },
-  { label: "Newsletter", href: "/newsletter" },
   { label: "Jobs", href: "/karriere" },
 ];
 
