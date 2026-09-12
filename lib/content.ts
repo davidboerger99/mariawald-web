@@ -23,7 +23,7 @@ export const nav: NavItem[] = [
     href: "/veranstaltungen",
   },
   {
-    label: "Kloster",
+    label: "Ort von Kirche",
     href: "/unser-kloster",
     children: [
       { label: "Über uns", href: "/unser-kloster/ueber-uns" },
