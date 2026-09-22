@@ -51,6 +51,24 @@ function upcomingSundays(fromISO: string, count: number): string[] {
   return out;
 }
 
+function upcomingThursdays(fromISO: string, count: number): string[] {
+  const [y, m, d] = fromISO.split("-").map(Number);
+  let dt = new Date(Date.UTC(y, m - 1, d));
+  const results: string[] = [];
+
+//  // Schleife läuft, bis wir die gewünschte Anzahl (count) an Donnerstagen haben
+  while (results.length < count) {
+//    // 1. Tag um einen Tag nach vorne verschieben
+    dt.setUTCDate(dt.getUTCDate() + 1);
+//
+//    // 2. Prüfen, ob der aktuelle Tag ein Donnerstag ist (4)
+    if (dt.getUTCDay() === 4) {
+//      // 3. Wenn ja, im ISO-Format (YYYY-MM-DD) in das Ergebnis-Array pushen
+      results.push(dt.toISOString().split("T")[0]);
+    }
+  }
+ return results;
+}
 export default function EventsList({ limit, showFilters = true, category, categories, upcomingOnly = false, sundayTours = false, sundayMass = false }: Props) {
   const [active, setActive] = useState<string | null>(null);
   // "heute" erst nach dem Mounten setzen, um Hydration-Unterschiede zu vermeiden

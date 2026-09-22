@@ -9,7 +9,7 @@ export default function VeranstaltungenPage() {
     <>
       <PageHeader
         title="Veranstaltungen"
-        intro="Begegnung belebt: In Mariawald sind die verschiedensten Menschen willkommen. Die Abtei ist zugleich ein Ort der Einkehr, der Stille und des geistlichen Lebens."
+//        intro="Begegnung belebt: In Mariawald sind alle Menschen herzlich willkommen."
         crumbs={[{ label: "Aktuelles", href: "/aktuelles" }]}
       />
 

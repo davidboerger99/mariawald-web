@@ -32,7 +32,7 @@ const simplePages: Record<string, { title: string; intro: string; body: string[]
     title: "Aktuelle Öffnungszeiten",
     intro: "Kirche, Klosterladen und Gaststätte auf einen Blick.",
     body: [
-      "Die Abteikirche ist täglich von 9 bis 18 Uhr geöffnet. Klosterladen und Klostergaststätte öffnen dienstags bis sonntags von 10 bis 17 Uhr.",
+      "Die Klosterkirche ist geöffnet."
     ],
   },
   karriere: {

@@ -10,7 +10,7 @@ export default function GottesdienstzeitenPage() {
     <>
       <PageHeader
         title="Aktuelle Gottesdienstzeiten"
-        intro="Alle Gottesdienste in der Abteikirche sind öffentlich. Sie sind herzlich eingeladen, mitzufeiern."
+        intro="Alle Freunde und Besucher des Klosters Mariawald sind zur Mitfeier der Gottesdienste herzlich eingeladen."
         crumbs={[{ label: "Aktuelles", href: "/aktuelles" }]}
       />
       <div className="mx-auto max-w-6xl px-4 py-14">
@@ -24,8 +24,9 @@ export default function GottesdienstzeitenPage() {
         <div className="mt-16 max-w-[1000px]">
           <h2 className="text-[24px] font-semibold text-heading">Anstehende Gottesdienste</h2>
           <p className="mt-2 text-[15px] text-foreground/70">
-            Sonntags feiern wir um 10:00 Uhr die Heilige Messe. Alle Freunde und Besucher des
-            Klosters sind herzlich zur Mitfeier eingeladen.
+            Sonntags feiern wir um 10:00 Uhr und jeden Donnerstag um 14:00 Uhr die Heilige Messe.<br />
+            
+            Alle Freunde und Besucher des Klosters sind herzlich zur Mitfeier eingeladen.<br />
           </p>
           <div className="mt-6">
             <EventsList category="Gottesdienst" upcomingOnly sundayMass limit={8} showFilters={false} />

@@ -37,9 +37,18 @@ export default async function VeranstaltungPage({
           {formatDate(item.date)} · {item.time} · {item.location}
         </p>
         <p className="text-lg">{item.teaser}</p>
-        <p>
-          Hier folgen Programm, Hinweise zur Anmeldung und weitere Details.
-          Dieser Platzhalter zeigt das Layout einer Veranstaltungsseite.
+        <p style={{ textAlign: 'justify'}}>
+          Sie sind herzlich eingeladen, die Spiritualität der Zisterzienser näher kennen zu lernen. Im „Dialog mit der Stille" werden, und zwar wechselnd, bestimmte Themen der Zisterzienserspiritualität präsentiert und beleuchtet. Des Weiteren werden dann, im Anschluss an die Lesung, der Kreuzgang und die Kirche des Klosters besucht. Dort haben Sie die Möglichkeit, die gehörten Texte zu reflektieren. Der „Dialog mit der Stille" ist kein Diskussionsforum, und auch ist damit keine Klosterbesichtigung verbunden. Der „Dialog mit der Stille" ist mehr eine „Andacht", welche in enger Anlehnung an den Lebensalltag der Mönche von Mariawald gestaltet ist, das heißt alles erfolgt „schweigend" und „in stiller Einkehr".<br />
+         <br />
+          Das aktuelle Thema lautet<br />
+        <br />
+        </p>
+        <p style={{ textAlign: 'center', fontSize: '30px', color: 'red' }}>
+        Gastfreundschaft
+        </p>
+<br />
+<p>
+Der „Dialog mit der Stille" dauert etwa 45 Minuten. Die Teilnahme ist kostenfrei. Treffpunkt ist zur angegebenen Zeit an der Klosterpforte.        
         </p>
       </Prose>
     </>

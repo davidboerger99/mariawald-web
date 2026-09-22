@@ -24,12 +24,11 @@ export const nav: NavItem[] = [
   },
   {
     label: "Ort von Kirche",
-    href: "/unser-kloster",
+    href: "/allgemein-ovk",
     children: [
-      { label: "Über uns", href: "/unser-kloster/ueber-uns" },
-      { label: "Klosterladen", href: "/klosterladen" },
-      { label: "Buch- und Kunsthandlung", href: "/buchhandlung" },
-      { label: "Likörfabrik", href: "/likoermanufaktur" },
+      { label: "Was bedeutet \"Ort von Kirche\"", href: "/allgemein-ovk" },
+      { label: "Mariawald als \"Ort von Kirche\"", href: "/mariawald-ovk" },
+      { label: "Die Tür ist offen ...", href: "/tueroffen" },
     ],
   },
 
@@ -133,10 +132,10 @@ export type EventItem = {
 // Kategorien mit Farbe (der Punkt vor dem Titel). Farben frei änderbar.
 export const eventCategories: { label: string; color: string }[] = [
   { label: "Gottesdienst", color: "#1e265c" },
-  { label: "Konzert", color: "#b8912f" },
+ // { label: "Konzert", color: "#b8912f" },
   { label: "Führung", color: "#7a8a99" },
-  { label: "Besinnung", color: "#b02218" },
-  { label: "Vortrag", color: "#8a6d4b" },
+  { label: "Dialog mit der Stille", color: "#b02218" },
+ // { label: "Vortrag", color: "#8a6d4b" },
 ];
 
 export function eventCategoryColor(label: string): string {
@@ -149,7 +148,25 @@ export const events: EventItem[] = [
   {
     slug: "dialog-mit-der-stille",
     title: "Dialog mit der Stille",
-    date: "2026-09-13",
+    date: "2026-09-27",
+    time: "17:30 Uhr",
+    location: "Kloster Mariawald",
+    category: "Besinnung",
+    teaser: "Ein Abend der Stille und der inneren Einkehr.",
+  },
+  {
+    slug: "dialog-mit-der-stille",
+    title: "Dialog mit der Stille",
+    date: "2026-10-25",
+    time: "17:30 Uhr",
+    location: "Kloster Mariawald",
+    category: "Besinnung",
+    teaser: "Ein Abend der Stille und der inneren Einkehr.",
+  },
+  {
+    slug: "dialog-mit-der-stille",
+    title: "Dialog mit der Stille",
+    date: "2026-11-08",
     time: "17:30 Uhr",
     location: "Kloster Mariawald",
     category: "Besinnung",
@@ -163,25 +180,23 @@ export const serviceTimes: ServiceTime[] = [
   {
     day: "Sonn- und Feiertage",
     times: [
-      { time: "08:00", name: "Laudes" },
-      { time: "10:30", name: "Hochamt" },
-      { time: "17:30", name: "Vesper" },
+      { time: "10:00", name: "Hochamt" },
     ],
   },
+//  {
+//    day: "Werktage",
+//    times: [
+//      { time: "07:30", name: "Laudes" },
+//      { time: "11:30", name: "Heilige Messe" },
+//      { time: "17:30", name: "Vesper" },
+//    ],
+//  },
+
+// Neuer Eintrag
   {
-    day: "Werktage",
+    day: "Donnerstag",
     times: [
-      { time: "07:30", name: "Laudes" },
-      { time: "11:30", name: "Heilige Messe" },
-      { time: "17:30", name: "Vesper" },
-    ],
-  },
-  {
-    day: "Samstag",
-    times: [
-      { time: "07:30", name: "Laudes" },
-      { time: "11:30", name: "Heilige Messe" },
-      { time: "17:00", name: "Vorabendmesse" },
+      { time: "14:00", name: "Heilige Messe" },
     ],
   },
 ];

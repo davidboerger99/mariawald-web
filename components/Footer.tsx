@@ -11,14 +11,14 @@ const mainLinks = [
   { label: "Gottesdienstzeiten", href: "/gottesdienstzeiten" },
   { label: "Veranstaltungen", href: "/veranstaltungen" },
   { label: "Klosterführungen", href: "/klosterfuehrungen" },
-  { label: "Gästehaus", href: "/gaestehaus" },
+ //{/*{ label: "Gästehaus", href: "/gaestehaus" },*/}
 ];
 
 const legalLinks = [
   { label: "Impressum", href: "/impressum" },
   { label: "Datenschutz", href: "/datenschutz" },
   { label: "Barrierefreiheit", href: "/barrierefreiheit" },
-  { label: "Jobs", href: "/karriere" },
+ // { label: "Jobs", href: "/karriere" },
 ];
 
 const socials = [

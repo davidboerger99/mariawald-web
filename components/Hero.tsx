@@ -14,7 +14,9 @@ export default function Hero() {
           <div style={{ textShadow: "0 1px 3px rgba(0,0,0,.55), 0 4px 18px rgba(0,0,0,.5)" }}>
             <div className="flex items-center justify-center gap-2 sm:gap-4 md:gap-5">
               <span className="text-[26px] font-light tracking-[0.18em] sm:text-[42px] sm:tracking-[0.32em] md:text-[54px] md:tracking-[0.35em]">
-                MARIA
+					MARIAWALD                 
+                
+                 {/*MARIA
               </span>
               <span aria-hidden="true" className="relative inline-block h-[62px] w-[36px] sm:h-[92px] sm:w-[54px] md:h-[110px] md:w-[64px]">
                 <svg viewBox="0 0 64 110" className="h-full w-full" fill="none" stroke="currentColor">
@@ -24,15 +26,14 @@ export default function Hero() {
                 </svg>
               </span>
               <span className="text-[26px] font-light tracking-[0.18em] sm:text-[42px] sm:tracking-[0.32em] md:text-[54px] md:tracking-[0.35em]">
-                WALD
+                WALD*/}
               </span>
             </div>
             <p className="mt-4 text-[11px] font-light tracking-[0.28em] uppercase sm:text-[15px] sm:tracking-[0.5em]">
-              Abtei in der Eifel
+             Ort von Kirche
             </p>
           </div>
         </div>
-
         <a
           href="#veranstaltungen"
           className="absolute inset-x-0 bottom-8 mx-auto flex w-fit flex-col items-center text-white"
