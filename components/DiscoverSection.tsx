@@ -36,11 +36,13 @@ const cards = [
     href: "/gottesdienstzeiten",
     text: "Die Gottesdienste haben im Kloster Vorrang vor allem anderen. Besucher und Gäste sind herzlich eingeladen.",
   },
-  {*/{
+  /*
+  {
     title: "Gästehaus",
     href: "/gaestehaus",
     text: "Zimmer für Gäste, die Stille suchen und am Rhythmus des Klosters teilnehmen möchten.",
-  },*/}
+  },
+  */
   {
     title: "Likörmanufaktur",
     href: "/likoermanufaktur",
