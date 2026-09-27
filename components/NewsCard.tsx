@@ -23,7 +23,7 @@ export default function NewsCard({ item }: { item: NewsItem }) {
         <div className="flex flex-1 flex-col p-6">
           <div className="flex items-center gap-2 text-[12px]">
             <span className="rounded-full bg-accent/10 px-3 py-1 font-semibold text-accent">
-              {item.category === "Kloster" ? "Aus Kloster & Konvent" : item.category}
+              {item.category === "Kloster" ? "Kloster & Kirche" : item.category}
             </span>
             {item.date && <span className="text-[#999]">{formatDate(item.date)}</span>}
           </div>

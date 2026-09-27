@@ -37,8 +37,7 @@ export default async function NachrichtPage({ params }: PageProps<"/nachrichten/
         </p>
         <p className="text-lg">{item.teaser}</p>
         <p>
-          Hier folgt der vollständige Beitragstext. Dieser Platzhalter zeigt das
-          Layout einer Nachrichtenseite mit Kopfbereich, Datum und Fließtext.
+          Als Küster sorgst du dafür, dass in der Kirche alles vorbereitet ist. Du öffnest Räume, richtest den Altar her, stellst Kerzen, Gesangbücher und Technik bereit und hilfst beim Ablauf von Gottesdiensten. Auch bei Taufen, Hochzeiten, Beerdigungen oder Gemeindefesten bist du oft im Einsatz. Viele Aufgaben laufen im Hintergrund: Heizung prüfen, Glockenanlage bedienen, kleine Reparaturen melden oder Räume wieder ordentlich machen. In alten Kirchen brauchst du außerdem ein gutes Gefühl für wertvolle Gegenstände und Denkmalschutz. 
         </p>
       </Prose>
     </>

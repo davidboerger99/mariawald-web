@@ -20,7 +20,11 @@ export const nav: NavItem[] = [
   // 1) Behaltene Menüpunkte -------------------------------------------------
   {
     label: "Aktuelles",
-    href: "/veranstaltungen",
+    href: "/news-overview",
+    children: [
+      { label: "Veranstaltungen" , href: "/veranstaltungen"},
+      { label: "Neuigkeiten" , href: "/nachrichten"},
+    ],
   },
   {
     label: "Ort von Kirche",
@@ -62,58 +66,60 @@ export type NewsItem = {
 };
 
 export const news: NewsItem[] = [
-  {
-    slug: "mariawalder-buechertisch",
-    title: "Mariawalder Büchertisch",
-    teaser:
-      "Der Förderverein lädt am Samstag, 29., und Sonntag, 30. August 2026, jeweils von 11 bis 17 Uhr, wieder zum traditionellen Mariawalder Büchertisch ein.",
-    date: "2026-08-29",
-    image: "/images/mariawald/buechertisch.jpg",
-    category: "Veranstaltung",
-  },
+//  {
+//    slug: "mariawalder-buechertisch",
+//    title: "Mariawalder Büchertisch",
+//    teaser:
+//      "Der Förderverein lädt am Samstag, 29., und Sonntag, 30. August 2026, jeweils von 11 bis 17 Uhr, wieder zum traditionellen Mariawalder Büchertisch ein.",
+//    date: "2026-08-29",
+//    image: "/images/mariawald/buechertisch.jpg",
+//    category: "Veranstaltung",
+//  },
   {
     slug: "herzlich-willkommen",
-    title: "Herzlich willkommen in Mariawald",
-    teaser:
-      "Ob Sie einen Ausflug planen, ein religiöses Angebot suchen oder dem Kloster seit Langem verbunden sind – in Mariawald sind Sie herzlich willkommen.",
+    title: "Unterstützen der Messfeiern",
+//    teaser:
+//      "Der Sakristan ist mit seinem Team für die Klosterkirche verantwortlich.",
+    href: "/sakristan",
     image: "/images/mariawald/willkommen.jpg",
     category: "Kloster",
   },
   {
     slug: "klosterfuehrungen",
-    title: "Klosterführungen",
-    teaser:
-      "Blicken Sie hinter die alten Klostermauern und erhalten Sie Einblick in das Leben der Trappisten. Exklusive Führungen, ca. eine Stunde, Treffpunkt Klosterpforte. Anmeldung im Klosterladen.",
-    href: "/klosterfuehrungen",
+    title: "Mithilfe bei der Pflege der Anlage",
+//    teaser:
+//      "Der Zellerar unterstützt mit seinem Team die Pflege der Klosteranlage.",
+    href: "/pflege-anlage",
     image: "/images/mariawald/kreuzgang-ost.jpg",
     category: "Kloster",
   },
   {
     slug: "mariawalder-buecherschrank",
-    title: "Mariawalder Bücherschrank",
-    teaser:
-      "Im Bücherschrank an der Klosterpforte finden Sie Bücher, die dem Kloster geschenkt wurden, gelegentlich auch Schallplatten und ausgemusterte Bände aus der Klosterbibliothek.",
+    href: "/bibliothek",
+    title: "Mithilfe in der Bibliothek",
+//    teaser:
+//      "Der Armarius betreut mit seinem Team den Bücherbestand des Klosters.",
     image: "/images/mariawald/buecherschrank.jpg",
     category: "Kloster",
   },
   {
     slug: "klosterprodukte-online",
-    title: "Einkaufen vor Ort oder online bestellen",
-    teaser:
-      "Im Klosterladen gibt es Kunst, Literatur und das komplette Sortiment eigener Klosterprodukte – von der Mariawalder Erbsensuppe über die Klosterliköre bis zu hauseigenem Gebäck. Vieles ist auch online erhältlich.",
+    title: "Singgemeinschaft",
+//    teaser:
+//      "Der Kantor beschäftigt sich mit dem trappistischen bzw. Mariawalder Chorgesang.",
     href: "/klosterladen",
-    image: "/images/mariawald/klosterladen-pakete.jpg",
+    image: "/images/mariawald/choral.jpg",
     category: "Kloster",
   },
-  {
-    slug: "neuer-traeger",
-    title: "Mariawald bleibt ein Ort mit spiritueller Strahlkraft",
-    teaser:
-      "Seit dem 1. Januar 2021 führt die Kloster Mariawald GmbH & Co. KG die ehemalige Trappistenabtei im Geist der Mönche weiter.",
-    date: "2020-12-01",
-    image: "/images/mariawald/neuer-traeger.jpg",
-    category: "Neuigkeiten",
-  },
+//  {
+//    slug: "neuer-traeger",
+//    title: "Mariawald bleibt ein Ort mit spiritueller Strahlkraft",
+//    teaser:
+//      "Seit dem 1. Januar 2021 führt die Kloster Mariawald GmbH & Co. KG die ehemalige Trappistenabtei im Geist der Mönche weiter.",
+//    date: "2020-12-01",
+//    image: "/images/mariawald/neuer-traeger.jpg",
+//    category: "Neuigkeiten",
+//  },
 ];
 
 export type EventItem = {
@@ -132,9 +138,10 @@ export type EventItem = {
 // Kategorien mit Farbe (der Punkt vor dem Titel). Farben frei änderbar.
 export const eventCategories: { label: string; color: string }[] = [
   { label: "Gottesdienst", color: "#1e265c" },
- // { label: "Konzert", color: "#b8912f" },
   { label: "Führung", color: "#7a8a99" },
   { label: "Dialog mit der Stille", color: "#b02218" },
+  { label: "Sonstige", color: "#b8912f" },
+
  // { label: "Vortrag", color: "#8a6d4b" },
 ];
 
