@@ -35,7 +35,8 @@ export default function Hero() {
           </div>
         </div>
         <a
-          href="#veranstaltungen"
+//          href="#veranstaltungen"
+          href="klosterintro"
           className="absolute inset-x-0 bottom-8 mx-auto flex w-fit flex-col items-center text-white"
           style={{ textShadow: "0 1px 3px rgba(0,0,0,.4)" }}
         >

@@ -16,6 +16,8 @@ export default function KlosterIntro() {
             </h2>
             <div className="mt-6 max-w-xl space-y-4 text-[17px] leading-relaxed text-navy/90">
               <p>
+                Dies ist ein Beispieltext. Der Text ist zu überarbeiten.<br />
+                <br />
                 Seit vielen Jahrhunderten ist die Abtei Mariawald ein Ort des Gebets und der
                 Gastfreundschaft, ein Rastplatz für die Seele auf dem Weg durch die Eifel.
                 Malerisch über dem Rurtal, hoch auf dem wilden Kermeter oberhalb von Heimbach,

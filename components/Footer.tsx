@@ -10,7 +10,7 @@ const mainLinks = [
   { label: "Anreise", href: "/anreise" },
   { label: "Gottesdienstzeiten", href: "/gottesdienstzeiten" },
   { label: "Veranstaltungen", href: "/veranstaltungen" },
-  { label: "Klosterführungen", href: "/klosterfuehrungen" },
+ // { label: "Klosterführungen", href: "/klosterfuehrungen" },
  //{/*{ label: "Gästehaus", href: "/gaestehaus" },*/}
 ];
 
@@ -97,7 +97,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-10 text-[13px] text-navy/60">
-          © {new Date().getFullYear()} Abtei Mariawald · D-52396 Heimbach/Eifel
+          © {new Date().getFullYear()} Kloster Mariawald · D-52396 Heimbach/Eifel
         </p>
       </div>
     </footer>

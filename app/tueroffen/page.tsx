@@ -15,7 +15,10 @@ export default function BuchhandlungPage() {
     <>
       <PageHeader
         title="Die Tür ist offen ..."
-        crumbs={[{ label: "Kloster", href: "/unser-kloster" }]}
+        crumbs={[
+          { label: "Ort von Kirche", href: "/allgemein-ovk" },
+//          { label: "Kloster", href: "/unser-kloster" }
+        ]}
       />
 
       <div className="mx-auto max-w-[1150px] px-5 py-16 lg:px-9 lg:py-24 text-justify">
@@ -94,14 +97,18 @@ export default function BuchhandlungPage() {
         intro="Nachrichten und Veranstaltungen aus der Abtei Mariawald."
       />
 */}
+{/*
       <Section title="Ehrenamtliche Aktivitäten in Mariawald" moreHref="/nachrichten" moreLabel="Alle Nachrichten">
+*/}
+      <Section title="Ehrenamtliche Aktivitäten in Mariawald">
+
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {news.slice(0, 3).map((n) => (
             <NewsCard key={n.slug} item={n} />
           ))}
         </div>
       </Section>
-      <Section
+{/*      <Section
         title="Veranstaltungen"
         moreHref="/veranstaltungen"
         moreLabel="Alle Veranstaltungen"
@@ -111,7 +118,7 @@ export default function BuchhandlungPage() {
           <EventsList limit={5} showFilters={false} />
         </div>
       </Section>
-    
+*/}
   
 
 

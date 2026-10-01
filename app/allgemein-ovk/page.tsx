@@ -10,7 +10,10 @@ export default function BuchhandlungPage() {
     <>
       <PageHeader
         title="Was bedeutet „Ort von Kirche“"
-        crumbs={[{ label: "Was bedeutet „Ort von Kirche“", href: "/allgemein-ovk" }]}
+        crumbs={[
+          { label: "Ort von Kirche", href: "/allgemein-ovk" },
+ //         { label: "Was bedeutet „Ort von Kirche“", href: "/allgemein-ovk" },
+        ]}
       />
 
       <div className="mx-auto max-w-[1150px] px-5 py-16 lg:px-9 lg:py-24 text-justify"> 

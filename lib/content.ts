@@ -20,7 +20,7 @@ export const nav: NavItem[] = [
   // 1) Behaltene Menüpunkte -------------------------------------------------
   {
     label: "Aktuelles",
-    href: "/news-overview",
+    href: "/nachrichten",
     children: [
       { label: "Veranstaltungen" , href: "/veranstaltungen"},
       { label: "Neuigkeiten" , href: "/nachrichten"},
@@ -46,6 +46,7 @@ export const nav: NavItem[] = [
     href: "/kontakt",
     children: [
       { label: "Kontakt", href: "/kontakt" },
+      { label: "Öffnungszeiten", href: "/oeffnungszeiten"},
       { label: "Klosterführungen", href: "/klosterfuehrungen" },
       { label: "Anreise und Parken", href: "/anreise" },
     ],
@@ -54,6 +55,47 @@ export const nav: NavItem[] = [
   // 4) Mitglieder-Login-Button (rechts, hervorgehoben) ----------------------
   { label: "Mitglieder Login", href: "/login", variant: "login" },
 ];
+
+// Test-Start
+export type MessageItem = {
+  slug: string;
+  title: string;
+  href?: string;
+  date?: string;
+  image?: string;
+  category: "Personen" | "Kloster" | "Ort von Kirche";
+};
+
+export const message: MessageItem[] = [
+{
+  slug: "news-1",
+  title: "Bruder Clemens",
+  date: "2026-09-30",
+  href: "/news-1", 
+  image: "/images/neuigkeiten/clemens.jpg",
+  category: "Menschen",
+},
+
+{
+  slug: "news-2",
+  title: "Bildstöckchen",
+  date: "2026-10-01",
+  href: "/news-2", 
+  image: "/images/neuigkeiten/Bildstöckchen.jpg",
+  category: "Kloster",
+},
+
+{
+  slug: "news-3",
+  title: "Pferde",
+  date: "2026-11-01",
+  href: "/news-3", 
+  image: "/images/neuigkeiten/pferde.jpg",
+  category: "Ort von Kirche"
+},
+
+];
+// Test-Ende
 
 export type NewsItem = {
   slug: string;
@@ -279,7 +321,7 @@ export const site = {
   address: "Abtei Mariawald 1, 52396 Heimbach",
   phone: "+49 (0) 2446 950-60",
   fax: "+49 (0) 2446 950-630",
-  email: "info@kloster-mariawald.de",
+  email: "info@ovk-mariawald.de",
 };
 
 export function formatDate(iso: string): string {

@@ -6,12 +6,12 @@ import { site } from "@/lib/content";
 export const metadata: Metadata = { title: "Kontakt" };
 
 const departments = [
-  { label: "Pforte & Verwaltung", tel: "+49 (0) 2446 950-612", tel2: "+49 (0) 2446 950-611", fax: "+49 (0) 2446 950-6218" },
-  { label: "Geschäftsleitung", tel: "+49 (0) 2446 950-614", fax: "+49 (0) 2446 950-6218" },
+//  { label: "Pforte & Verwaltung", tel: "+49 (0) 2446 950-612", tel2: "+49 (0) 2446 950-611", fax: "+49 (0) 2446 950-6218" },
+//  { label: "Geschäftsleitung", tel: "+49 (0) 2446 950-614", fax: "+49 (0) 2446 950-6218" },
   { label: "Klostergaststätte", tel: "+49 (0) 2446 950-616" },
   { label: "Kunst- & Buchhandlung", tel: "+49 (0) 2446 950-629" },
   { label: "Klosterladen", tel: "+49 (0) 2446 950-629" },
-  { label: "Likörfabrik", tel: "+49 (0) 2446 950-618", fax: "+49 (0) 2446 950-6218" },
+//  { label: "Likörfabrik", tel: "+49 (0) 2446 950-618", fax: "+49 (0) 2446 950-6218" },
 ];
 
 function telHref(t: string) {
@@ -21,8 +21,12 @@ function telHref(t: string) {
 export default function KontaktPage() {
   return (
     <>
-      <PageHeader title="Kontakt" intro="So erreichen Sie die Abtei Mariawald." />
-
+      <PageHeader title="Kontakt" intro="So erreichen Sie die Abtei Mariawald." 
+          crumbs={[
+          { label: "Infos", href: "/kontakt" },
+//          { label: "Neuigkeiten", href: "/news-3" },
+        ]}
+        />
       <div className="mx-auto grid max-w-[1150px] gap-16 px-5 py-16 lg:grid-cols-2 lg:px-9 lg:py-20">
         {/* Formular */}
         <div>
@@ -37,7 +41,7 @@ export default function KontaktPage() {
 
         {/* Kontaktdaten */}
         <div>
-          <h2 className="text-[28px] font-bold text-heading sm:text-[32px]">Kloster Mariawald</h2>
+          <h2 className="text-[28px] font-bold text-heading sm:text-[32px]">Mariawald - Ort von Kirche</h2>
 
           <div className="mt-6 rounded-2xl border border-black/5 bg-muted p-6">
             <address className="text-[15px] leading-relaxed text-foreground/85 not-italic">

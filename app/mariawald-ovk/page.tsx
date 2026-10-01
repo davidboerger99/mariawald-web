@@ -32,7 +32,10 @@ export default function KlosterladenPage() {
       <PageHeader
         title="Mariawald als „Ort von Kirche“"
 //        intro="Klosterprodukte, Literatur und Geschenke aus Mariawald und anderen Klöstern."
-        crumbs={[{ label: "Kloster", href: "/unser-kloster" }]}
+        crumbs={[
+          { label: "Ort von Kirche", href: "/allgemein-ovk" },
+//          { label: "Kloster", href: "/unser-kloster" }
+        ]}
       />
 
       <div className="mx-auto max-w-[1150px] px-5 py-16 lg:px-9 lg:py-24 text-justify">

@@ -28,13 +28,13 @@ const simplePages: Record<string, { title: string; intro: string; body: string[]
       "Sie können uns Ihre Gebetsanliegen per E-Mail oder über das Kontaktformular anvertrauen. Sie werden in den Gebetszeiten der Gemeinschaft bedacht.",
     ],
   },
-  oeffnungszeiten: {
-    title: "Aktuelle Öffnungszeiten",
-    intro: "Kirche, Klosterladen und Gaststätte auf einen Blick.",
-    body: [
-      "Die Klosterkirche ist geöffnet."
-    ],
-  },
+//  oeffnungszeiten: {
+//    title: "Aktuelle Öffnungszeiten",
+//    intro: "Kirche, Klosterladen und Gaststätte auf einen Blick.",
+//    body: [
+//      "Die Klosterkirche ist geöffnet."
+//    ],
+//  },
   karriere: {
     title: "Jobs",
     intro: "Arbeiten in Mariawald.",
