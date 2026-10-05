@@ -28,26 +28,12 @@ function dateLabel(ev: EventItem) {
   return ev.endDate ? `${dayShort(ev.date)} – ${dayShort(ev.endDate)}` : dayDot(ev.date);
 }
 
-// die nächsten `count` Sonntage ab `fromISO` (inkl. heute, falls Sonntag)
-function upcomingSundays(fromISO: string, count: number): string[] {
+// die nächsten `count` Termine ab `fromISO` für einen bestimmten Wochentag
+// (0 = Sonntag, 1 = Montag, ... 4 = Donnerstag). Inklusive heute, falls passend.
+function upcomingWeekdays(fromISO: string, weekday: number, count: number): string[] {
   const [y, m, d] = fromISO.split("-").map(Number);
   let dt = new Date(Date.UTC(y, m - 1, d));
-  dt = new Date(dt.getTime() + ((7 - dt.getUTCDay()) % 7) * 86400000);
-  const out: string[] = [];
-  for (let i = 0; i < count; i++) {
-    out.push(dt.toISOString().slice(0, 10));
-    dt = new Date(dt.getTime() + 7 * 86400000);
-  }
-  return out;
-}
-
-function upcomingThursdays(fromISO: string, count: number): string[] {
-  const [y, m, d] = fromISO.split("-").map(Number);
-  let dt = new Date(Date.UTC(y, m - 1, d));
-  
-  // Berechnet die Tage bis zum nächsten Donnerstag (Donnerstag = 4)
-  dt = new Date(dt.getTime() + ((4 - dt.getUTCDay() + 7) % 7) * 86400000);
-  
+  dt = new Date(dt.getTime() + ((weekday - dt.getUTCDay() + 7) % 7) * 86400000);
   const out: string[] = [];
   for (let i = 0; i < count; i++) {
     out.push(dt.toISOString().slice(0, 10));
@@ -69,12 +55,13 @@ export default function VeranstaltungenList() {
   const [month, setMonth] = useState<string | null>(null); // "YYYY-MM"
   const [visible, setVisible] = useState(PAGE_SIZE);
 
-  // wiederkehrende Sonntagstermine (Heilige Messe + Klosterführungen) erzeugen
+  // wiederkehrende Termine erzeugen: Sonntags Messe + Führungen, Donnerstags Messe
   const recurring = useMemo(() => {
     if (!today) return [] as EventItem[];
     const out: EventItem[] = [];
-    
-    for (const dISO of upcomingSundays(today, 16)) {
+
+    // Sonntage: Heilige Messe (10:00) und zwei Klosterführungen (12:30 / 14:00)
+    for (const dISO of upcomingWeekdays(today, 0, 16)) {
       out.push({
         slug: `sonntagsmesse-${dISO}`,
         title: "Heilige Messe",
@@ -83,40 +70,36 @@ export default function VeranstaltungenList() {
         location: "Abteikirche",
         category: "Gottesdienst",
         href: "/gottesdienstzeiten",
-        teaser:
-          "Alle Freunde und Besucher der Abtei sind herzlich zur Mitfeier eingeladen.",
+        teaser: "Alle Freunde und Besucher der Abtei sind herzlich zur Mitfeier eingeladen.",
       });
-
-        
-    for (const time of ["12:30 Uhr", "14:00 Uhr"]) {
-      out.push({
-        slug: `sonntagsfuehrung-${dISO}-${time.slice(0, 5).replace(":", "")}`,
-        title: "Klosterführung",
-        date: dISO,
-        time,
-        location: "Treffpunkt Klosterpforte",
-        category: "Führung",
-        href: "/klosterfuehrungen",
-        teaser:
-          "Rundgang durch den ehemaligen Klausurbereich, ca. 60 Minuten.",
+      for (const time of ["12:30 Uhr", "14:00 Uhr"]) {
+        out.push({
+          slug: `sonntagsfuehrung-${dISO}-${time.slice(0, 5).replace(":", "")}`,
+          title: "Klosterführung",
+          date: dISO,
+          time,
+          location: "Treffpunkt Klosterpforte",
+          category: "Führung",
+          href: "/klosterfuehrungen",
+          teaser: "Rundgang durch den ehemaligen Klausurbereich, ca. 60 Minuten.",
         });
-
-//    for (const dISO of upcomingThursdays(today, 16)) {
-//      out.push({
-//        slug: `donnerstagsmesse-${dISO}`,
-//        title: "Heilige Messe",
-//        date: dISO,
-//        time: "14:00 Uhr",
-//        location: "Abteikirche",
-//        category: "Gottesdienst",
-//        href: "/gottesdienstzeiten",
-//        teaser:
-//          "Alle Freunde und Besucher der Abtei sind herzlich zur Mitfeier eingeladen.",
-//        });
-
       }
     }
-//  }
+
+    // Donnerstage: Heilige Messe (14:00)
+    for (const dISO of upcomingWeekdays(today, 4, 16)) {
+      out.push({
+        slug: `donnerstagsmesse-${dISO}`,
+        title: "Heilige Messe",
+        date: dISO,
+        time: "14:00 Uhr",
+        location: "Abteikirche",
+        category: "Gottesdienst",
+        href: "/gottesdienstzeiten",
+        teaser: "Alle Freunde und Besucher der Abtei sind herzlich zur Mitfeier eingeladen.",
+      });
+    }
+
     return out;
   }, [today]);
 

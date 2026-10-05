@@ -195,30 +195,30 @@ export const events: EventItem[] = [
   // Sondertermine (einzelne Veranstaltungen). Die wiederkehrenden
   // Sonntagstermine (Heilige Messe, Klosterführungen) werden automatisch erzeugt.
   {
-    slug: "dialog-mit-der-stille",
+    slug: "dialog-mit-der-stille-2026-09-27",
     title: "Dialog mit der Stille",
     date: "2026-09-27",
     time: "17:30 Uhr",
     location: "Kloster Mariawald",
-    category: "Besinnung",
+    category: "Dialog mit der Stille",
     teaser: "Ein Abend der Stille und der inneren Einkehr.",
   },
   {
-    slug: "dialog-mit-der-stille",
+    slug: "dialog-mit-der-stille-2026-10-25",
     title: "Dialog mit der Stille",
     date: "2026-10-25",
     time: "17:30 Uhr",
     location: "Kloster Mariawald",
-    category: "Besinnung",
+    category: "Dialog mit der Stille",
     teaser: "Ein Abend der Stille und der inneren Einkehr.",
   },
   {
-    slug: "dialog-mit-der-stille",
+    slug: "dialog-mit-der-stille-2026-11-08",
     title: "Dialog mit der Stille",
     date: "2026-11-08",
     time: "17:30 Uhr",
     location: "Kloster Mariawald",
-    category: "Besinnung",
+    category: "Dialog mit der Stille",
     teaser: "Ein Abend der Stille und der inneren Einkehr.",
   },
 ];
