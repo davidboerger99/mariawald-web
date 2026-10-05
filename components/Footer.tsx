@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 const mainLinks = [
   { label: "Kontakt", href: "/kontakt" },
-  { label: "Öffnungszeiten und Preise", href: "/oeffnungszeiten" },
+  { label: "Öffnungszeiten", href: "/oeffnungszeiten" },
   { label: "Anreise", href: "/anreise" },
   { label: "Gottesdienstzeiten", href: "/gottesdienstzeiten" },
   { label: "Veranstaltungen", href: "/veranstaltungen" },

@@ -223,6 +223,36 @@ export const events: EventItem[] = [
   },
 ];
 
+export type OpeningTime = { day: string; times: { time: string; name: string }[] };
+
+export const openingTimes: OpeningTime[] = [
+  {
+    day: "Klosterkirche",
+    times: [
+      { time: "10:00 bis etwa 17:30 Uhr" },
+ //     { time: "10:00 bis 18:00 Uhr", name: "wochentags" },
+    ],
+  },
+  
+  {
+    day: "Klosterladen",
+    times: [
+//      { time: "10:00 bis 18:00 Uhr", name: "sonntags, feiertags" },
+      { time: "11:00 bis 18:00 Uhr" },
+
+    ],
+  },
+
+  {
+    day: "Klostergaststätte",
+    times: [
+      { time: "10:00 bis 18:00 Uhr", name: "sonntags, feiertags" },
+      { time: "11:00 bis 18:00 Uhr", name: "wochentags" },
+
+    ],
+  },
+];
+
 export type ServiceTime = { day: string; times: { time: string; name: string }[] };
 
 export const serviceTimes: ServiceTime[] = [
@@ -317,11 +347,11 @@ export const discover: DiscoverItem[] = [
 
 export const site = {
   name: "Abtei Mariawald",
-  claim: "Kloster in der Eifel",
+//  claim: "Kloster in der Eifel",
   address: "Abtei Mariawald 1, 52396 Heimbach",
-  phone: "+49 (0) 2446 950-60",
-  fax: "+49 (0) 2446 950-630",
-  email: "info@ovk-mariawald.de",
+  phone: "+49 (0) 2446 9506-0",
+//  fax: "+49 (0) 2446 950-630",
+  email: "info@kloster-mariawald-ovk.de",
 };
 
 export function formatDate(iso: string): string {

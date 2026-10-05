@@ -8,9 +8,9 @@ export const metadata: Metadata = { title: "Kontakt" };
 const departments = [
 //  { label: "Pforte & Verwaltung", tel: "+49 (0) 2446 950-612", tel2: "+49 (0) 2446 950-611", fax: "+49 (0) 2446 950-6218" },
 //  { label: "Geschäftsleitung", tel: "+49 (0) 2446 950-614", fax: "+49 (0) 2446 950-6218" },
-  { label: "Klostergaststätte", tel: "+49 (0) 2446 950-616" },
-  { label: "Kunst- & Buchhandlung", tel: "+49 (0) 2446 950-629" },
-  { label: "Klosterladen", tel: "+49 (0) 2446 950-629" },
+  { label: "Klostergaststätte", tel: "+49 (0) 2446 9506-16" },
+//  { label: "Kunst- & Buchhandlung", tel: "+49 (0) 2446 9506-29" },
+  { label: "Klosterladen", tel: "+49 (0) 2446 9506-29" },
 //  { label: "Likörfabrik", tel: "+49 (0) 2446 950-618", fax: "+49 (0) 2446 950-6218" },
 ];
 
