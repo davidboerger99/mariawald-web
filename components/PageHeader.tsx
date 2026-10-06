@@ -8,7 +8,7 @@ export default function PageHeader({
   intro,
   crumbs = [],
 }: {
-  title: string;
+  title?: string;
   intro?: string;
   crumbs?: Crumb[];
 }) {
@@ -41,12 +41,14 @@ export default function PageHeader({
                 ))}
               </ol>
             </nav>
-            <h1
-              className="mt-2 text-[36px] font-light leading-[42px]"
-              style={{ textShadow: "0 2px 8px rgba(0,0,0,.4)" }}
-            >
-              {title}
-            </h1>
+            {title && (
+              <h1
+                className="mt-2 text-[36px] font-light leading-[42px]"
+                style={{ textShadow: "0 2px 8px rgba(0,0,0,.4)" }}
+              >
+                {title}
+              </h1>
+            )}
             {intro && (
               <p
                 className="mt-2 max-w-2xl font-light text-white"

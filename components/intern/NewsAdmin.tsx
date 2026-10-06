@@ -62,7 +62,7 @@ export default function NewsAdmin() {
 
   function edit(row: Row) {
     setEditing(row.id);
-    setForm({ title: row.title, date: row.date ?? "", category: row.category, teaser: row.teaser });
+    setForm({ title: row.title, date: row.date ?? "", category: row.category, teaser: row.teaser ?? "" });
     if (typeof window !== "undefined") window.scrollTo({ top: 0, behavior: "smooth" });
   }
 

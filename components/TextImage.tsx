@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
-  title: string;
+  title?: string;
   paragraphs: string[];
   image: string;
   alt: string;
@@ -28,7 +28,7 @@ export default function TextImage({
         </div>
       </div>
       <div className={imageSide === "left" ? "lg:order-2" : "lg:order-1"}>
-        <h2 className="text-[28px] font-bold leading-tight text-heading sm:text-[32px]">{title}</h2>
+        {title && <h2 className="text-[28px] font-bold leading-tight text-heading sm:text-[32px]">{title}</h2>}
         <div className="mt-5 space-y-4 text-[16px] leading-relaxed text-foreground/80">
           {paragraphs.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>

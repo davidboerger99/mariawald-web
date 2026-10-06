@@ -5,7 +5,7 @@ import { site } from "@/lib/content";
 
 export const metadata: Metadata = { title: "Kontakt" };
 
-const departments = [
+const departments: { label: string; tel: string; tel2?: string; fax?: string }[] = [
 //  { label: "Pforte & Verwaltung", tel: "+49 (0) 2446 950-612", tel2: "+49 (0) 2446 950-611", fax: "+49 (0) 2446 950-6218" },
 //  { label: "Geschäftsleitung", tel: "+49 (0) 2446 950-614", fax: "+49 (0) 2446 950-6218" },
   { label: "Klostergaststätte", tel: "+49 (0) 2446 9506-16" },
@@ -57,10 +57,6 @@ export default function KontaktPage() {
                     {site.phone}
                   </a>
                 </dd>
-              </div>
-              <div className="flex gap-3">
-                <dt className="w-16 shrink-0 text-foreground/60">Fax</dt>
-                <dd className="text-foreground/80">{site.fax}</dd>
               </div>
               <div className="flex gap-3">
                 <dt className="w-16 shrink-0 text-foreground/60">E-Mail</dt>

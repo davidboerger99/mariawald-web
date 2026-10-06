@@ -60,10 +60,11 @@ export const nav: NavItem[] = [
 export type MessageItem = {
   slug: string;
   title: string;
+  teaser?: string;
   href?: string;
   date?: string;
   image?: string;
-  category: "Personen" | "Kloster" | "Ort von Kirche";
+  category: "Personen" | "Kloster" | "Ort von Kirche" | "Menschen";
 };
 
 export const message: MessageItem[] = [
@@ -100,7 +101,7 @@ export const message: MessageItem[] = [
 export type NewsItem = {
   slug: string;
   title: string;
-  teaser: string;
+  teaser?: string; // optional; wird nur angezeigt, wenn gesetzt
   date?: string; // optional; wird nur angezeigt, wenn gesetzt
   href?: string; // optionales Linkziel (statt der automatischen Detailseite)
   image?: string; // Bild für Karte/Karussell (z. B. "/images/mariawald/xy.jpg")
@@ -223,7 +224,7 @@ export const events: EventItem[] = [
   },
 ];
 
-export type OpeningTime = { day: string; times: { time: string; name: string }[] };
+export type OpeningTime = { day: string; times: { time: string; name?: string }[] };
 
 export const openingTimes: OpeningTime[] = [
   {
