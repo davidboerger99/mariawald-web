@@ -11,7 +11,7 @@ export default function Home() {
       <KlosterIntro />
       <EventsCarousel />
 
-      <section className="bg-white">
+{/*      <section className="bg-white">
         <div className="mx-auto max-w-[1240px] px-5 pt-8 pb-24 lg:px-9">
           <h2 className="text-[32px] font-bold leading-tight text-heading sm:text-[40px]">
             Gottesdienste &amp; Führungen
@@ -48,6 +48,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
     </>
   );
 }

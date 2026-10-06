@@ -24,40 +24,42 @@ function formatDate(iso: string) {
   return `${String(d).padStart(2, "0")}. ${monthNames[m - 1]} ${y}`;
 }
 
+
 export default function EventsCarousel() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
   const items = news;
 
-  function onScroll() {
-    const el = trackRef.current;
-    if (!el) return;
-    const cards = Array.from(el.children) as HTMLElement[];
-    const base = cards[0]?.offsetLeft ?? 0;
-    let idx = 0;
-    let best = Infinity;
-    cards.forEach((c, i) => {
-      const dist = Math.abs(c.offsetLeft - base - el.scrollLeft);
-      if (dist < best) {
-        best = dist;
-        idx = i;
-      }
-    });
-    setActive(idx);
-  }
+//  function onScroll() {
+//    const el = trackRef.current;
+//    if (!el) return;
+//    const cards = Array.from(el.children) as HTMLElement[];
+//    const base = cards[0]?.offsetLeft ?? 0;
+//    let idx = 0;
+//    let best = Infinity;
+//    cards.forEach((c, i) => {
+//      const dist = Math.abs(c.offsetLeft - base - el.scrollLeft);
+//      if (dist < best) {
+//        best = dist;
+//        idx = i;
+//      }
+//    });
+//    setActive(idx);
+//  }
 
-  function scrollToCard(i: number) {
-    const el = trackRef.current;
-    if (!el) return;
-    const first = el.children[0] as HTMLElement | undefined;
-    const card = el.children[i] as HTMLElement | undefined;
-    if (card && first) el.scrollTo({ left: card.offsetLeft - first.offsetLeft, behavior: "smooth" });
-  }
+//  function scrollToCard(i: number) {
+//    const el = trackRef.current;
+//    if (!el) return;
+//    const first = el.children[0] as HTMLElement | undefined;
+//    const card = el.children[i] as HTMLElement | undefined;
+//    if (card && first) el.scrollTo({ left: card.offsetLeft - first.offsetLeft, behavior: "smooth" });
+//  }
 
-  return (
-    <section id="veranstaltungen" className="scroll-mt-24 overflow-hidden bg-white py-20">
+
+//  return (
+//    <section id="veranstaltungen" className="scroll-mt-24 overflow-hidden bg-white py-20">
       {/* Kopfbereich in der zentrierten Spalte */}
-      <div className="mx-auto max-w-[1240px] px-5 lg:px-9">
+{/*      <div className="mx-auto max-w-[1240px] px-5 lg:px-9">
         <div className="flex flex-wrap items-start justify-between gap-6">
           <div>
             <h2 className="text-[32px] font-bold leading-[1.15] text-heading sm:text-[40px]">
@@ -91,9 +93,9 @@ export default function EventsCarousel() {
           </Link>
         </div>
       </div>
-
+*/}
       {/* Karten-Track: links am Inhaltsrand ausgerichtet, rechts über die volle Breite */}
-      <div
+{/*      <div
         ref={trackRef}
         onScroll={onScroll}
         style={{
@@ -127,6 +129,8 @@ export default function EventsCarousel() {
           </Link>
         ))}
       </div>
-    </section>
-  );
+      */}
+//    </section>
+//  );
+
 }

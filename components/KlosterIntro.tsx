@@ -34,7 +34,7 @@ export default function KlosterIntro() {
           </div>
 
           {/* Pfeil-Buttons rechts */}
-          <div className="flex flex-col gap-3 lg:col-span-4 lg:col-start-9">
+{/*          <div className="flex flex-col gap-3 lg:col-span-4 lg:col-start-9">
             {links.map((l) => (
               <Link
                 key={l.href}
@@ -48,6 +48,7 @@ export default function KlosterIntro() {
               </Link>
             ))}
           </div>
+*/}
         </div>
       </div>
     </section>
