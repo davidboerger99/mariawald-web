@@ -133,4 +133,6 @@ export default function EventsCarousel() {
 //    </section>
 //  );
 
+  // Karussell ist derzeit deaktiviert (JSX oben auskommentiert).
+  return null;
 }
